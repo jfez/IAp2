@@ -415,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.14, y: 10.96, z: 0.21}
+  m_LocalPosition: {x: -0.14, y: 12.15, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -451,7 +451,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88431920d3174734c88e5a098f05ab12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grid: {fileID: 1338318728}
   casillaInstanced: {fileID: 1199335362956866366, guid: 61f096b63b5e03d4c9097ee49811cb0b,
+    type: 3}
+  casillaRiver: {fileID: 1835185133236594464, guid: ba8791c97baf75842b15b47d1a772155,
+    type: 3}
+  casillaBridge: {fileID: 5394185878483254891, guid: 1e6f03ac04adb574dbc84f8670120285,
     type: 3}
 --- !u!4 &1191007867
 Transform:
@@ -555,7 +560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338318728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

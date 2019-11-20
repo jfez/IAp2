@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class CreateGameGrid : MonoBehaviour
 {
-    
+    public GameObject grid;
+
     public GameObject casillaInstanced;
+    public GameObject casillaRiver;
+    public GameObject casillaBridge;
     private Vector3 pos;
 
     private GameObject[] casillasArray;
     private int index;
     private int wood, stone, gold, food;
+
+    private GameObject casilla;
+    private Grid gridScript;
     
     // Start is called before the first frame update
     void Start()
     {
+        gridScript = grid.GetComponent<Grid>();
         Vector3 pos = new Vector3 (-7.5f, -1f, 7.5f);
         
         casillasArray = new GameObject[256];
         
         CreateGrid();
+        gridScript.CreateGrid();
 
         index = 0;
         
@@ -27,6 +35,8 @@ public class CreateGameGrid : MonoBehaviour
         stone = 32;
         gold = 32;
         food = 32;
+
+        
 
         //CreateResources();
         
@@ -46,11 +56,32 @@ public class CreateGameGrid : MonoBehaviour
                     pos.z = 7.5f;
                     pos.y = -0.5f;
                 }
-                GameObject casilla = Instantiate(casillaInstanced, pos, Quaternion.identity);
-                casilla.transform.GetChild(0).gameObject.SetActive(false);
-                casilla.transform.GetChild(1).gameObject.SetActive(false);
-                casilla.transform.GetChild(2).gameObject.SetActive(false);
-                casilla.transform.GetChild(3).gameObject.SetActive(false);
+                if(i==0 && j == 2 || i==0 && j == 3 || i==1 && j == 3 || i==2 && j == 3 
+                    || i==2 && j == 4 || i==4 && j == 5 || i==4 && j == 6 
+                    || i==5 && j == 6 || i==6 && j == 6 || i==6 && j == 7 
+                    || i==7 && j == 7 || i==8 && j == 8 || i==9 && j == 8 
+                    || i==9 && j == 9 || i==10 && j == 9 || i==11 && j == 9 
+                    || i==11 && j == 10 || i==13 && j == 11 || i==13 && j == 12
+                    || i==14 && j == 12 || i==15 && j == 12 || i==15 && j == 13){
+                    casilla = Instantiate(casillaRiver, pos, Quaternion.identity);
+
+                }
+
+                else if(i==3 && j == 4 || i==3 && j == 5 || i==7 && j == 8 || i==8 && j == 7 || i==12 && j == 10 || i==12 && j == 11 ){
+                    casilla = Instantiate(casillaBridge, pos, Quaternion.identity);
+
+                }
+
+                else{
+                    casilla = Instantiate(casillaInstanced, pos, Quaternion.identity);
+
+                    casilla.transform.GetChild(0).gameObject.SetActive(false);
+                    casilla.transform.GetChild(1).gameObject.SetActive(false);
+                    casilla.transform.GetChild(2).gameObject.SetActive(false);
+                    casilla.transform.GetChild(3).gameObject.SetActive(false);
+
+                }
+                
                 casillasArray[index] = casilla;
                 index++;
                 pos.x += 1f;

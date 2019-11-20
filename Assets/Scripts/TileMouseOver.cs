@@ -13,7 +13,7 @@ public class TileMouseOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        normalColor = Color.white;
+        //normalColor = Color.white;
         //coll = GetComponent<Collider>();
         //rend = GetComponent<Renderer>();
     }
@@ -37,6 +37,7 @@ public class TileMouseOver : MonoBehaviour
             if (selection.CompareTag("Selectable")){
                 rend = selection.GetComponent<Renderer>();
                 if (rend != null){
+                    normalColor = rend.material.color;
                     rend.material.color = highlightColor;
 
                 }

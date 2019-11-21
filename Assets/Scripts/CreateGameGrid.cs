@@ -38,7 +38,7 @@ public class CreateGameGrid : MonoBehaviour
 
         
 
-        //CreateResources();
+        CreateResources();
         
     }
 
@@ -76,9 +76,24 @@ public class CreateGameGrid : MonoBehaviour
                     casilla = Instantiate(casillaInstanced, pos, Quaternion.identity);
 
                     casilla.transform.GetChild(0).gameObject.SetActive(false);
+                    casilla.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+                    casilla.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
+                    casilla.transform.GetChild(0).transform.GetChild(2).gameObject.SetActive(false);
+
                     casilla.transform.GetChild(1).gameObject.SetActive(false);
+                    casilla.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
+                    casilla.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
+                    casilla.transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+
                     casilla.transform.GetChild(2).gameObject.SetActive(false);
+                    casilla.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+                    casilla.transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
+                    casilla.transform.GetChild(2).transform.GetChild(2).gameObject.SetActive(false);
+
                     casilla.transform.GetChild(3).gameObject.SetActive(false);
+                    casilla.transform.GetChild(3).transform.GetChild(0).gameObject.SetActive(false);
+                    casilla.transform.GetChild(3).transform.GetChild(1).gameObject.SetActive(false);
+                    casilla.transform.GetChild(3).transform.GetChild(2).gameObject.SetActive(false);
 
                 }
                 
@@ -93,11 +108,114 @@ public class CreateGameGrid : MonoBehaviour
 
     }
 
-    void CreateResources(){
+    void CreateResources(){ //recursos en las ciudades y alrededores?? 
+        
+        //WOOD
         for (int i = 0; i < 32; i++){
             int fila = Random.Range(0,16);
-            int col = Random.Range(0,8);
-            int colReflex = 15-col;
+            int col = Random.Range(0,16);
+            
+
+            while(casillasArray[fila*16+col].GetComponent<Resources>() == null || casillasArray[fila*16+col].GetComponent<Resources>().wood != 0 
+            || (fila == 15 && col == 0) || (fila == 0 && col == 15)) 
+            //si resources es null es que esa casilla no tiene recursos (puente o río)
+            {
+                
+                fila = Random.Range(0,16);
+                col = Random.Range(0,16);
+            }
+            int filaReflex = 15 - fila;
+            int colReflex = 15 - col;
+
+            int resourceAmount = Random.Range(1,4);
+            casillasArray[fila*16+col].GetComponent<Resources>().wood = resourceAmount;
+            casillasArray[fila*16+col].transform.GetChild(0).gameObject.SetActive(true);
+            casillasArray[fila*16+col].GetComponent<Resources>().UpdateResource("wood");
+
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().wood = resourceAmount;
+            casillasArray[filaReflex*16+colReflex].transform.GetChild(0).gameObject.SetActive(true);
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().UpdateResource("wood");
+        }
+
+        //STONE
+        for (int i = 0; i < 32; i++){
+            int fila = Random.Range(0,16);
+            int col = Random.Range(0,16);
+            
+
+            while(casillasArray[fila*16+col].GetComponent<Resources>() == null || casillasArray[fila*16+col].GetComponent<Resources>().stone != 0 
+            || (fila == 15 && col == 0) || (fila == 0 && col == 15)) 
+            //si resources es null es que esa casilla no tiene recursos (puente o río)
+            {
+                
+                fila = Random.Range(0,16);
+                col = Random.Range(0,16);
+            }
+            int filaReflex = 15 - fila;
+            int colReflex = 15 - col;
+
+            int resourceAmount = Random.Range(1,4);
+            casillasArray[fila*16+col].GetComponent<Resources>().stone = resourceAmount;
+            casillasArray[fila*16+col].transform.GetChild(1).gameObject.SetActive(true);
+            casillasArray[fila*16+col].GetComponent<Resources>().UpdateResource("stone");
+
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().stone = resourceAmount;
+            casillasArray[filaReflex*16+colReflex].transform.GetChild(1).gameObject.SetActive(true);
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().UpdateResource("stone");
+        }
+
+        //GOLD
+        for (int i = 0; i < 32; i++){
+            int fila = Random.Range(0,16);
+            int col = Random.Range(0,16);
+            
+
+            while(casillasArray[fila*16+col].GetComponent<Resources>() == null || casillasArray[fila*16+col].GetComponent<Resources>().gold != 0 
+            || (fila == 15 && col == 0) || (fila == 0 && col == 15)) 
+            //si resources es null es que esa casilla no tiene recursos (puente o río)
+            {
+                
+                fila = Random.Range(0,16);
+                col = Random.Range(0,16);
+            }
+            int filaReflex = 15 - fila;
+            int colReflex = 15 - col;
+
+            int resourceAmount = Random.Range(1,4);
+            casillasArray[fila*16+col].GetComponent<Resources>().gold = resourceAmount;
+            casillasArray[fila*16+col].transform.GetChild(2).gameObject.SetActive(true);
+            casillasArray[fila*16+col].GetComponent<Resources>().UpdateResource("gold");
+
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().gold = resourceAmount;
+            casillasArray[filaReflex*16+colReflex].transform.GetChild(2).gameObject.SetActive(true);
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().UpdateResource("gold");
+        }
+
+        //FOOD
+        for (int i = 0; i < 32; i++){
+            int fila = Random.Range(0,16);
+            int col = Random.Range(0,16);
+            
+
+            while(casillasArray[fila*16+col].GetComponent<Resources>() == null || casillasArray[fila*16+col].GetComponent<Resources>().food != 0 
+            || (fila == 15 && col == 0) || (fila == 0 && col == 15)) 
+            //si resources es null es que esa casilla no tiene recursos (puente o río)
+            {
+                
+                fila = Random.Range(0,16);
+                col = Random.Range(0,16);
+            }
+            int filaReflex = 15 - fila;
+            int colReflex = 15 - col;
+
+            int resourceAmount = Random.Range(1,4);
+            casillasArray[fila*16+col].GetComponent<Resources>().food = resourceAmount;
+            casillasArray[fila*16+col].transform.GetChild(3).gameObject.SetActive(true);
+            casillasArray[fila*16+col].GetComponent<Resources>().UpdateResource("food");
+
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().food = resourceAmount;
+            casillasArray[filaReflex*16+colReflex].transform.GetChild(3).gameObject.SetActive(true);
+            casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().UpdateResource("food");
         }
 
 

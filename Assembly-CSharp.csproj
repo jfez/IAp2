@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\AStar\PathRequestManager.cs" />
      <Compile Include="Assets\Scripts\AStar\Unit.cs" />
      <Compile Include="Assets\Scripts\CreateGameGrid.cs" />
+     <Compile Include="Assets\Scripts\Resources.cs" />
      <Compile Include="Assets\Scripts\TileMouseOver.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/PcCom/Documents/GitHub/IAp2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

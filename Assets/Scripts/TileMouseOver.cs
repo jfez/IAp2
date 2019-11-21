@@ -34,7 +34,7 @@ public class TileMouseOver : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity)){
             Transform selection = hitInfo.transform;
-            if (selection.CompareTag("Selectable")){
+            if (selection.CompareTag("Selectable") || selection.CompareTag("SelectableBridge")){
                 rend = selection.GetComponent<Renderer>();
                 if (rend != null){
                     normalColor = rend.material.color;

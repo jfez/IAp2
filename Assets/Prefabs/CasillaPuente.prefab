@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5394185878483254890}
   m_Layer: 0
   m_Name: CasillaPuente
-  m_TagString: Selectable
+  m_TagString: SelectableBridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

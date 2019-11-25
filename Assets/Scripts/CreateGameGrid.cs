@@ -19,7 +19,7 @@ public class CreateGameGrid : MonoBehaviour
     private Grid gridScript;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gridScript = grid.GetComponent<Grid>();
         Vector3 pos = new Vector3 (-7.5f, -1f, 7.5f);
@@ -27,7 +27,7 @@ public class CreateGameGrid : MonoBehaviour
         casillasArray = new GameObject[256];
         
         CreateGrid();
-        gridScript.CreateGrid();
+        //gridScript.CreateGrid();
 
         index = 0;
         
@@ -36,10 +36,12 @@ public class CreateGameGrid : MonoBehaviour
         gold = 32;
         food = 32;
 
-        
+    }
 
+    private void Start()
+    {
+        gridScript.CreateGrid();
         CreateResources();
-        
     }
 
     // Update is called once per frame

@@ -26,8 +26,6 @@ public class Grid : MonoBehaviour {
 			walkableMask.value |= region.terrainMask.value;
 			walkableRegionsDictionary.Add((int)Mathf.Log(region.terrainMask.value,2),region.terrainPenalty);
 		}
-
-		CreateGrid();
 	}
 
 	public int MaxSize {
@@ -89,7 +87,8 @@ public class Grid : MonoBehaviour {
 
 		int x = Mathf.RoundToInt((gridSizeX-1) * percentX);
 		int y = Mathf.RoundToInt((gridSizeY-1) * percentY);
-		return grid[x,y];
+
+        return grid[x,y];
 	}
 	
 	void OnDrawGizmos() {

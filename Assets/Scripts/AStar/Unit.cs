@@ -5,13 +5,18 @@ public class Unit : MonoBehaviour {
 
 
 	public Transform target;
-	float speed = 10;
+	public float speed = 2.5f;
 	Vector3[] path;
 	int targetIndex;
 
 	void Start() {
-		PathRequestManager.RequestPath(transform.position,target.position, OnPathFound);
-	}
+        Invoke("Pathing", 0.25f);
+    }
+
+    void Pathing()
+    {
+        PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+    }
 
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful) {
 		if (pathSuccessful) {

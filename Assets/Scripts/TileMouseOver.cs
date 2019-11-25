@@ -41,7 +41,7 @@ public class TileMouseOver : MonoBehaviour
                     normalColor = rend.material.color;
                     rend.material.color = highlightColor;
                     if (Input.GetMouseButtonDown(0)&& !selection.GetComponent<Resources>().building){
-                        Instantiate(cityPrefab, selection.position + Vector3.up/1.5f, cityPrefab.transform.rotation);
+                        Instantiate(cityPrefab, selection.position + Vector3.up/2f, cityPrefab.transform.rotation);
                         selection.GetComponent<Resources>().building = true;
 
                     }

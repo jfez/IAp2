@@ -369,10 +369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1628271596}
-  speed: 6
-  turnSpeed: 3
-  turnDst: 5
-  stoppingDst: 0
 --- !u!4 &476800570
 Transform:
   m_ObjectHideFlags: 0
@@ -381,7 +377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476800568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.67, y: 0, z: -6.39}
+  m_LocalPosition: {x: -6.5, y: 0, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1420912044}
@@ -534,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.13428374, g: 0.3490566, b: 0.12348701, a: 0}
-  cityPrefab: {fileID: 5489172142477940300, guid: 03095d638b4622a4c89f3ace9ae9fe8b,
+  cityPrefab: {fileID: 5465384160803104767, guid: 82c1ac474be8a3f448bb8284780fea5c,
     type: 3}
 --- !u!1 &1338318728
 GameObject:
@@ -602,7 +598,6 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1024
     terrainPenalty: 0
-  obstacleProximityPenalty: 0
 --- !u!4 &1338318732
 Transform:
   m_ObjectHideFlags: 0
@@ -611,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338318728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -846,7 +841,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1628271592}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -904,7 +899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628271592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.54, y: 0.5, z: 6.63}
+  m_LocalPosition: {x: 6.5, y: 0.5, z: -1.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}

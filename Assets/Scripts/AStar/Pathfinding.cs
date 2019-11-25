@@ -1,27 +1,34 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Diagnostics;
 using System;
 
-public class Pathfinding : MonoBehaviour
-{
-    Grid grid;
+public class Pathfinding : MonoBehaviour {
+	
+	PathRequestManager requestManager;
+	Grid grid;
 	
 	void Awake() {
+		requestManager = GetComponent<PathRequestManager>();
 		grid = GetComponent<Grid>();
 	}
 	
-
-	public void FindPath(PathRequest request, Action<PathResult> callback) {
+	
+	public void StartFindPath(Vector3 startPos, Vector3 targetPos) {
+		StartCoroutine(FindPath(startPos,targetPos));
+	}
+	
+	IEnumerator FindPath(Vector3 startPos, Vector3 targetPos) {
 		
-		
-		
+		Stopwatch sw = new Stopwatch();
+		sw.Start();
 		
 		Vector3[] waypoints = new Vector3[0];
 		bool pathSuccess = false;
 		
-		Node startNode = grid.NodeFromWorldPoint(request.pathStart);
-		Node targetNode = grid.NodeFromWorldPoint(request.pathEnd);
+		Node startNode = grid.NodeFromWorldPoint(startPos);
+		Node targetNode = grid.NodeFromWorldPoint(targetPos);
 		startNode.parent = startNode;
 		
 		
@@ -35,8 +42,8 @@ public class Pathfinding : MonoBehaviour
 				closedSet.Add(currentNode);
 				
 				if (currentNode == targetNode) {
-					
-					//print ("Path found: " + sw.ElapsedMilliseconds + " ms");
+					sw.Stop();
+					print ("Path found: " + sw.ElapsedMilliseconds + " ms");
 					pathSuccess = true;
 					break;
 				}
@@ -60,14 +67,13 @@ public class Pathfinding : MonoBehaviour
 				}
 			}
 		}
+		yield return null;
 		if (pathSuccess) {
 			waypoints = RetracePath(startNode,targetNode);
-			pathSuccess = waypoints.Length > 0;
 		}
-		callback (new PathResult (waypoints, pathSuccess, request.callback));
+		requestManager.FinishedProcessingPath(waypoints,pathSuccess);
 		
 	}
-		
 	
 	Vector3[] RetracePath(Node startNode, Node endNode) {
 		List<Node> path = new List<Node>();
@@ -105,4 +111,6 @@ public class Pathfinding : MonoBehaviour
 			return 14*dstY + 10* (dstX-dstY);
 		return 14*dstX + 10 * (dstY-dstX);
 	}
+	
+	
 }

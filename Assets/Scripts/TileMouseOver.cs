@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileMouseOver : MonoBehaviour
 {
     public Color highlightColor;
+    public GameObject cityPrefab;
     Color normalColor;
     //private Collider coll;
     private Renderer rend;
@@ -39,6 +40,11 @@ public class TileMouseOver : MonoBehaviour
                 if (rend != null){
                     normalColor = rend.material.color;
                     rend.material.color = highlightColor;
+                    if (Input.GetMouseButtonDown(0)&& !selection.GetComponent<Resources>().building){
+                        Instantiate(cityPrefab, selection.position + Vector3.up/1.5f, cityPrefab.transform.rotation);
+                        selection.GetComponent<Resources>().building = true;
+
+                    }
 
                 }
                 _selection = selection;

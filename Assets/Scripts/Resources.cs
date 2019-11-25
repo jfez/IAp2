@@ -12,6 +12,7 @@ public class Resources : MonoBehaviour
     public int gold;
     [HideInInspector]
     public int food;
+    public bool building;
     
     // Start is called before the first frame update
     void Awake()
@@ -20,6 +21,7 @@ public class Resources : MonoBehaviour
         stone = 0;
         gold = 0;
         food = 0;
+        building = false;
     }
 
     // Update is called once per frame

@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 163995329375950841}
   - component: {fileID: 163995329375950842}
   - component: {fileID: 6589091455993773158}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Casilla
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -191,6 +191,7 @@ MonoBehaviour:
   stone: 0
   gold: 0
   food: 0
+  building: 0
 --- !u!1 &282655423340377497
 GameObject:
   m_ObjectHideFlags: 0

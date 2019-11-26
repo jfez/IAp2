@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5394185878483254888}
   - component: {fileID: 5394185878483254889}
   - component: {fileID: 5394185878483254890}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CasillaPuente
   m_TagString: SelectableBridge
   m_Icon: {fileID: 0}

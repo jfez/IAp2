@@ -37,7 +37,7 @@ public class CameraControl : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = Input.mousePosition;
-            Debug.Log("Arrastrar");
+            //Debug.Log("Arrastrar");
             return;
         }
         else if (!Input.GetMouseButton(1))

@@ -86,7 +86,7 @@ public class InfluenceMapControl : MonoBehaviour
 		_influenceMap.Decay = _decay;
 		_influenceMap.Momentum = _momentum;
 		
-		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		/*Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit mouseHit;
 		if (Physics.Raycast(mouseRay, out mouseHit) && Input.GetMouseButton(0) || Input.GetMouseButton(1))
 		{
@@ -103,6 +103,6 @@ public class InfluenceMapControl : MonoBehaviour
 					SetInfluence(gridPos, (Input.GetMouseButton(0) ? 1.0f : -1.0f));
 				}
 			}
-		}
+		}*/
 	}
 }

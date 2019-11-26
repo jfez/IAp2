@@ -43,7 +43,7 @@ public class SimplePropagator : MonoBehaviour, IPropagator
 		_map.RegisterPropagator(this);
 		_map.GetMovementLimits(out _bottomLeft, out _topRight);
 
-		InvokeRepeating("ChooseNewDestination", 0.001f, 3.0f);
+		//InvokeRepeating("ChooseNewDestination", 0.001f, 3.0f);
 	}
 
 	// Update is called once per frame
@@ -56,17 +56,17 @@ public class SimplePropagator : MonoBehaviour, IPropagator
 		_move.SimpleMove(_velocity);*/
 	}
 
-	void ChooseNewDestination()
+	/*void ChooseNewDestination()
 	{
 		_destination = PickDestination();
-	}
+	}*/
 
-	Vector3 PickDestination()
+	/*Vector3 PickDestination()
 	{
 		return new Vector3(
 			Random.Range(_bottomLeft.x, _topRight.x),
 			Random.Range(_bottomLeft.y, _topRight.y),
 			Random.Range(_bottomLeft.z, _topRight.z)
 		);
-	}
+	}*/
 }

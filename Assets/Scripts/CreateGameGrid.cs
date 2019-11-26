@@ -65,17 +65,16 @@ public class CreateGameGrid : MonoBehaviour
                     || i==9 && j == 9 || i==10 && j == 9 || i==11 && j == 9 
                     || i==11 && j == 10 || i==13 && j == 11 || i==13 && j == 12
                     || i==14 && j == 12 || i==15 && j == 12 || i==15 && j == 13){
-                    casilla = Instantiate(casillaRiver, pos, Quaternion.identity);
+                    casilla = Instantiate(casillaRiver, pos, Quaternion.identity, grid.transform);
 
                 }
 
                 else if(i==3 && j == 4 || i==3 && j == 5 || i==7 && j == 8 || i==8 && j == 7 || i==12 && j == 10 || i==12 && j == 11 ){
-                    casilla = Instantiate(casillaBridge, pos, Quaternion.identity);
-
+                    casilla = Instantiate(casillaBridge, pos, Quaternion.identity,grid.transform);
                 }
 
                 else{
-                    casilla = Instantiate(casillaInstanced, pos, Quaternion.identity);
+                    casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
 
                     casilla.transform.GetChild(0).gameObject.SetActive(false);
                     casilla.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);

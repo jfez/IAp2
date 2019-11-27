@@ -8,19 +8,14 @@ public struct Vector2I
 	public int y;
 	public float d;
 
-	public Vector2I(int nx, int ny)
-	{
-		x = nx;
-		y = ny;
-		d = 1;
-	}
-
-	public Vector2I(int nx, int ny, float nd)
+	public Vector2I(int nx, int ny, float nd = 1)
 	{
 		x = nx;
 		y = ny;
 		d = nd;
 	}
+
+	
 }
 
 public class InfluenceMap : GridData

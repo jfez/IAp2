@@ -18,7 +18,9 @@ public class TileMouseOver : MonoBehaviour
     private Transform _selection;
     private int fingerID = -1;
     private Transform selectedTile;
-    private bool menuOpen = false;
+    public bool menuOpen = false;
+
+    
     
     private void Awake()
     {
@@ -78,6 +80,7 @@ public class TileMouseOver : MonoBehaviour
                             menuOpen = false;
                         } else {
                             selection.GetChild(4).gameObject.SetActive(true);
+                            Debug.Log("Activar");
                             menuOpen = true;
                         }
                     }
@@ -91,6 +94,7 @@ public class TileMouseOver : MonoBehaviour
         if (selectedTile.GetComponent<Resources>().building == false){
             Instantiate(academyPrefab, selectedTile.position + Vector3.up/1.3f, academyPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = true;
+            Close();
         } 
     }
 
@@ -98,13 +102,16 @@ public class TileMouseOver : MonoBehaviour
         if (selectedTile.GetComponent<Resources>().building == false){
             Instantiate(cityPrefab, selectedTile.position + Vector3.up/2f, cityPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = true;
+            Close();
         }
     }
 
     public void instantiateTown(){
-        if (selectedTile.GetComponent<Resources>().building == false){
-            Instantiate(townPrefab, selectedTile.position + Vector3.up/2f, townPrefab.transform.rotation);
+        if (selectedTile.GetComponent<Resources>().building == false)
+        {
+            Instantiate(townPrefab, selectedTile.position + Vector3.up / 2f, townPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = true;
+            Close();
         }
     }
 
@@ -112,6 +119,13 @@ public class TileMouseOver : MonoBehaviour
         if (selectedTile.GetComponent<Resources>().building == false){
             Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = true;
+            Close();
         }
+    }
+
+    void Close()
+    {
+        menuOpen = false;
+        selectedTile.GetChild(4).gameObject.SetActive(false);
     }
 }

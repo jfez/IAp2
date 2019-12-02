@@ -9,5 +9,6 @@ public class Close_X : MonoBehaviour
     {
         GameObject.Find("GridManager").GetComponent<TileMouseOver>().menuOpen = false;
         transform.parent.gameObject.SetActive(false);
+        
     }
 }

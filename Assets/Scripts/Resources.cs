@@ -12,7 +12,13 @@ public class Resources : MonoBehaviour
     public int gold;
     [HideInInspector]
     public int food;
-    public bool building;
+    //public bool building;
+
+    public enum Building {Empty, City, Academy, Fort, Town};
+
+    public Building building;
+
+    public bool selected;
     
     // Start is called before the first frame update
     void Awake()
@@ -21,7 +27,8 @@ public class Resources : MonoBehaviour
         stone = 0;
         gold = 0;
         food = 0;
-        building = false;
+        building = Building.Empty;
+        selected = false;
     }
 
     // Update is called once per frame

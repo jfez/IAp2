@@ -49,18 +49,20 @@ public class TileMouseOver : MonoBehaviour
 
         }
 
-        if (EventSystem.current.IsPointerOverGameObject(fingerID))    // is the touch on the GUI
-        {
-            // GUI Action
-            return;
-        }
-
         if (Input.GetKey(KeyCode.Escape)){
             if (selectedTile != null){
                 canvasBuilding.gameObject.SetActive(false);
                 menuOpen = false;
             }
         }
+
+        if (EventSystem.current.IsPointerOverGameObject(fingerID))    // is the touch on the GUI
+        {
+            // GUI Action
+            return;
+        }
+
+       
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
@@ -72,7 +74,7 @@ public class TileMouseOver : MonoBehaviour
                 if (rend != null){
                     normalColor = rend.material.color;
                     rend.material.color = highlightColor;
-                    if (Input.GetMouseButtonDown(0)&& !selection.GetComponent<Resources>().building && !menuOpen){
+                    if (Input.GetMouseButtonDown(0)&& selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty){
                         /*Instantiate(cityPrefab, selection.position + Vector3.up/2f, cityPrefab.transform.rotation);
                         selection.GetComponent<Resources>().building = true;*/
 
@@ -80,47 +82,55 @@ public class TileMouseOver : MonoBehaviour
                         if (canvasBuilding.gameObject.activeInHierarchy){
                             canvasBuilding.gameObject.SetActive(false);
                             menuOpen = false;
-                        } else {
+                            selectedTile.GetComponent<Resources>().selected = false;
+                            selectedTile.GetComponent<Renderer>().material.color = normalColor;
+                        } 
+                        else {
                             canvasBuilding.gameObject.SetActive(true);
-                            Debug.Log("Activar");
+                            //Debug.Log("Activar");
                             menuOpen = true;
+                            selectedTile.GetComponent<Resources>().selected = true;
+                            selectedTile.GetComponent<Renderer>().material.color = highlightColor;
                         }
                     }
                 }
-                _selection = selection;
+                if (selection == null || (selection.GetComponent<Resources>() != null && !selection.GetComponent<Resources>().selected)){
+                    _selection = selection;
+                }
+                
             }
         }
     }
 
     public void instantiateAcademy(){
-        if (selectedTile.GetComponent<Resources>().building == false){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
             Instantiate(academyPrefab, selectedTile.position + Vector3.up/1.3f, academyPrefab.transform.rotation);
-            selectedTile.GetComponent<Resources>().building = true;
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Academy;
             Close();
         } 
     }
 
     public void instantiateCity(){
-        if (selectedTile.GetComponent<Resources>().building == false){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
             Instantiate(cityPrefab, selectedTile.position + Vector3.up/2f, cityPrefab.transform.rotation);
-            selectedTile.GetComponent<Resources>().building = true;
+            selectedTile.GetComponent<Resources>().building = Resources.Building.City;
             Close();
         }
     }
 
     public void instantiateTown(){
-        if (selectedTile.GetComponent<Resources>().building == false)
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty)
         {
             Instantiate(townPrefab, selectedTile.position + Vector3.up / 2f, townPrefab.transform.rotation);
-            selectedTile.GetComponent<Resources>().building = true;
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Town;
             Close();
         }
     }
 
     public void instantiateFort(){
-        if (selectedTile.GetComponent<Resources>().building == false){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
             Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
-            selectedTile.GetComponent<Resources>().building = true;
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;
             Close();
         }
     }
@@ -129,5 +139,7 @@ public class TileMouseOver : MonoBehaviour
     {
         menuOpen = false;
         canvasBuilding.gameObject.SetActive(false);
+        selectedTile.GetComponent<Resources>().selected = false;
+        selectedTile.GetComponent<Renderer>().material.color = normalColor;
     }
 }

@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class CreateGameGrid : MonoBehaviour
 {
+    [Tooltip("The grid.")]
     public GameObject grid;
 
     public GameObject casillaInstanced;
     public GameObject casillaRiver;
     public GameObject casillaBridge;
+
+    public GameObject cityPlayer;
     private Vector3 pos;
 
     private GameObject[] casillasArray;
@@ -75,7 +78,24 @@ public class CreateGameGrid : MonoBehaviour
                 }
 
                 else{
-                    casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
+
+                    if (i == 14 && j == 1){
+                        //Instantiate(cityPlayer)
+                        casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
+
+                    }
+
+                    else if (i == 1 && j == 14){
+                        Instantiate(cityPlayer, pos + Vector3.up/2f, cityPlayer.transform.rotation);
+                        casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
+                        casilla.gameObject.GetComponent<Resources>().building = Resources.Building.City;
+
+                    }
+
+                    else{
+                        casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
+
+                    }
 
                     casilla.transform.GetChild(0).gameObject.SetActive(false);
                     casilla.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
@@ -96,13 +116,6 @@ public class CreateGameGrid : MonoBehaviour
                     casilla.transform.GetChild(3).transform.GetChild(0).gameObject.SetActive(false);
                     casilla.transform.GetChild(3).transform.GetChild(1).gameObject.SetActive(false);
                     casilla.transform.GetChild(3).transform.GetChild(2).gameObject.SetActive(false);
-
-/*
-                    casilla.transform.GetChild(4).GetChild(1).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateAcademy);
-                    casilla.transform.GetChild(4).GetChild(2).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateCity);
-                    casilla.transform.GetChild(4).GetChild(3).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateFort);
-                    casilla.transform.GetChild(4).GetChild(4).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateTown);
-                    */
 
                 }
                 

@@ -10,13 +10,17 @@ public class Unit : MonoBehaviour {
 	int targetIndex;
 
 	void Start() {
-        Invoke("Pathing", 0.25f);
+        //Invoke("Pathing", 0.25f);
     }
 
     void Pathing()
     {
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
+
+	private void Update(){
+		
+	}
 
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful) {
 		if (pathSuccessful) {

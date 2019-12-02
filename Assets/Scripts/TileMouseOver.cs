@@ -20,6 +20,8 @@ public class TileMouseOver : MonoBehaviour
     private Transform selectedTile;
     public bool menuOpen = false;
 
+    public Canvas canvasBuilding;
+
     
     
     private void Awake()
@@ -55,7 +57,7 @@ public class TileMouseOver : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape)){
             if (selectedTile != null){
-                selectedTile.GetChild(4).gameObject.SetActive(false);
+                canvasBuilding.gameObject.SetActive(false);
                 menuOpen = false;
             }
         }
@@ -75,11 +77,11 @@ public class TileMouseOver : MonoBehaviour
                         selection.GetComponent<Resources>().building = true;*/
 
                         selectedTile = hitInfo.transform;
-                        if (selection.GetChild(4).gameObject.activeInHierarchy){
-                            selection.GetChild(4).gameObject.SetActive(false);
+                        if (canvasBuilding.gameObject.activeInHierarchy){
+                            canvasBuilding.gameObject.SetActive(false);
                             menuOpen = false;
                         } else {
-                            selection.GetChild(4).gameObject.SetActive(true);
+                            canvasBuilding.gameObject.SetActive(true);
                             Debug.Log("Activar");
                             menuOpen = true;
                         }
@@ -126,6 +128,6 @@ public class TileMouseOver : MonoBehaviour
     void Close()
     {
         menuOpen = false;
-        selectedTile.GetChild(4).gameObject.SetActive(false);
+        canvasBuilding.gameObject.SetActive(false);
     }
 }

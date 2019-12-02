@@ -8,6 +8,7 @@ TagManager:
   - NotSelectable
   - SelectableBridge
   - GridManager
+  - CanvasBuilding
   layers:
   - Default
   - TransparentFX

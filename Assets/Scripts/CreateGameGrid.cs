@@ -97,10 +97,12 @@ public class CreateGameGrid : MonoBehaviour
                     casilla.transform.GetChild(3).transform.GetChild(1).gameObject.SetActive(false);
                     casilla.transform.GetChild(3).transform.GetChild(2).gameObject.SetActive(false);
 
+/*
                     casilla.transform.GetChild(4).GetChild(1).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateAcademy);
                     casilla.transform.GetChild(4).GetChild(2).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateCity);
                     casilla.transform.GetChild(4).GetChild(3).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateFort);
                     casilla.transform.GetChild(4).GetChild(4).GetComponent<Button>().onClick.AddListener(GetComponent<TileMouseOver>().instantiateTown);
+                    */
 
                 }
                 

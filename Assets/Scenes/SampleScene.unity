@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1790,7 +1790,18 @@ PrefabInstance:
       propertyPath: m_FontData.m_MaxSize
       value: 45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 65879412876735698, guid: 502339640e587ae468df07335add99de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 900493025}
+    - target: {fileID: 65879412876735698, guid: 502339640e587ae468df07335add99de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2724839254523254192, guid: 502339640e587ae468df07335add99de, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 502339640e587ae468df07335add99de, type: 3}
 --- !u!1 &1338318728
 GameObject:
@@ -2531,6 +2542,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7253275079073765628, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _bottomLeft
+      value: 
+      objectReference: {fileID: 422832283}
+    - target: {fileID: 7253275079073765628, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _upperRight
+      value: 
+      objectReference: {fileID: 861136659}
     - target: {fileID: 7253275079073765619, guid: 274f4aecfab44c64b8653cceb07684df,
         type: 3}
       propertyPath: m_Name
@@ -2591,15 +2612,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7253275079073765628, guid: 274f4aecfab44c64b8653cceb07684df,
-        type: 3}
-      propertyPath: _bottomLeft
-      value: 
-      objectReference: {fileID: 422832283}
-    - target: {fileID: 7253275079073765628, guid: 274f4aecfab44c64b8653cceb07684df,
-        type: 3}
-      propertyPath: _upperRight
-      value: 
-      objectReference: {fileID: 861136659}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 274f4aecfab44c64b8653cceb07684df, type: 3}

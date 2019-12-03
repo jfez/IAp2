@@ -25,6 +25,9 @@ public class TileMouseOver : MonoBehaviour
     private bool moving;
     private Transform startSquare;
 
+    private Color whiteColor;
+    private Color woodColor;
+
     
     
     private void Awake()
@@ -37,7 +40,8 @@ public class TileMouseOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //normalColor = Color.white;
+        whiteColor = Color.white;
+        woodColor = new Color (0.56f, 0.37f, 0.09f, 1f);
         //coll = GetComponent<Collider>();
         //rend = GetComponent<Renderer>();
         moving = false;
@@ -57,6 +61,8 @@ public class TileMouseOver : MonoBehaviour
             if (selectedTile != null){
                 canvasBuilding.gameObject.SetActive(false);
                 menuOpen = false;
+                selectedTile.GetComponent<Resources>().selected = false;
+                selectedTile.GetComponent<Renderer>().material.color = whiteColor;
             }
         }
 
@@ -78,18 +84,13 @@ public class TileMouseOver : MonoBehaviour
                 if (rend != null){
                     normalColor = rend.material.color;
                     rend.material.color = highlightColor;
-                    if (Input.GetMouseButtonDown(0)&& selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty && !selection.GetComponent<SquareUnit>().unit && !moving){
+                    if (Input.GetMouseButtonDown(0)&& selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
                         /*Instantiate(cityPrefab, selection.position + Vector3.up/2f, cityPrefab.transform.rotation);
                         selection.GetComponent<Resources>().building = true;*/
 
                         selectedTile = hitInfo.transform;
-                        if (canvasBuilding.gameObject.activeInHierarchy){
-                            canvasBuilding.gameObject.SetActive(false);
-                            menuOpen = false;
-                            selectedTile.GetComponent<Resources>().selected = false;
-                            selectedTile.GetComponent<Renderer>().material.color = normalColor;
-                        } 
-                        else {
+
+                        if (!canvasBuilding.gameObject.activeInHierarchy) {
                             canvasBuilding.gameObject.SetActive(true);
                             //Debug.Log("Activar");
                             menuOpen = true;
@@ -123,7 +124,7 @@ public class TileMouseOver : MonoBehaviour
 
                     }
                 }
-                if (selection == null || (selection.GetComponent<Resources>() != null && !selection.GetComponent<Resources>().selected)){
+                if (selection == null || (selection.GetComponent<Resources>() != null && !selection.GetComponent<Resources>().selected) || selection.CompareTag("SelectableBridge")){
                     _selection = selection;
                 }
                 
@@ -164,11 +165,11 @@ public class TileMouseOver : MonoBehaviour
         }
     }
 
-    void Close()
+    public void Close()
     {
         menuOpen = false;
         canvasBuilding.gameObject.SetActive(false);
         selectedTile.GetComponent<Resources>().selected = false;
-        selectedTile.GetComponent<Renderer>().material.color = normalColor;
+        selectedTile.GetComponent<Renderer>().material.color = whiteColor;
     }
 }

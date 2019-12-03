@@ -9,6 +9,7 @@ TagManager:
   - SelectableBridge
   - GridManager
   - CanvasBuilding
+  - InfluenceMapControl
   layers:
   - Default
   - TransparentFX

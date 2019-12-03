@@ -13,9 +13,10 @@ public class Unit : MonoBehaviour {
         //Invoke("Pathing", 0.25f);
     }
 
-    void Pathing()
+    public void Pathing(Transform startPoint, Transform endPoint)
     {
-        PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        //PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+		PathRequestManager.RequestPath(startPoint.position, endPoint.position, OnPathFound);
     }
 
 	private void Update(){

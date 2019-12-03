@@ -19,6 +19,8 @@ public class Resources : MonoBehaviour
     public Building building;
 
     public bool selected;
+
+    
     
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +31,7 @@ public class Resources : MonoBehaviour
         food = 0;
         building = Building.Empty;
         selected = false;
+        
     }
 
     // Update is called once per frame

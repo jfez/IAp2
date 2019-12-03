@@ -13,6 +13,8 @@ public class CreateGameGrid : MonoBehaviour
     public GameObject casillaBridge;
 
     public GameObject cityPlayer;
+
+    public GameObject playerPlaceholder;
     private Vector3 pos;
 
     private GameObject[] casillasArray;
@@ -90,6 +92,15 @@ public class CreateGameGrid : MonoBehaviour
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
                         casilla.gameObject.GetComponent<Resources>().building = Resources.Building.City;
 
+                    }
+
+                    else if (i == 0 && j == 0){
+                        GameObject unitInstanced = Instantiate(playerPlaceholder, pos + Vector3.up/2f, playerPlaceholder.transform.rotation);
+                        
+                        casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
+                        unitInstanced.transform.parent = casilla.transform;
+                        casilla.gameObject.GetComponent<SquareUnit>().unit = true;
+                        
                     }
 
                     else{

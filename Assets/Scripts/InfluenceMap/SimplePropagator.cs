@@ -28,6 +28,8 @@ public class SimplePropagator : MonoBehaviour, IPropagator
 	[SerializeField]
 	float _speed;
 
+	
+
 	public Vector2I GridPosition
 	{
 		get
@@ -40,6 +42,8 @@ public class SimplePropagator : MonoBehaviour, IPropagator
 	void Start()
 	{
 		//_move = GetComponent<CharacterController>();
+		//print(GameObject.FindGameObjectWithTag("InfluenceMapControl"));
+		_map = GameObject.FindGameObjectWithTag("InfluenceMapControl").GetComponent<InfluenceMapControl>();
 		_map.RegisterPropagator(this);
 		_map.GetMovementLimits(out _bottomLeft, out _topRight);
 

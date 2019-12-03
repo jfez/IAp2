@@ -22,6 +22,9 @@ public class TileMouseOver : MonoBehaviour
 
     public Canvas canvasBuilding;
 
+    private bool moving;
+    private Transform startSquare;
+
     
     
     private void Awake()
@@ -37,6 +40,7 @@ public class TileMouseOver : MonoBehaviour
         //normalColor = Color.white;
         //coll = GetComponent<Collider>();
         //rend = GetComponent<Renderer>();
+        moving = false;
     }
 
     // Update is called once per frame
@@ -74,7 +78,7 @@ public class TileMouseOver : MonoBehaviour
                 if (rend != null){
                     normalColor = rend.material.color;
                     rend.material.color = highlightColor;
-                    if (Input.GetMouseButtonDown(0)&& selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty){
+                    if (Input.GetMouseButtonDown(0)&& selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty && !selection.GetComponent<SquareUnit>().unit && !moving){
                         /*Instantiate(cityPrefab, selection.position + Vector3.up/2f, cityPrefab.transform.rotation);
                         selection.GetComponent<Resources>().building = true;*/
 
@@ -92,6 +96,31 @@ public class TileMouseOver : MonoBehaviour
                             selectedTile.GetComponent<Resources>().selected = true;
                             selectedTile.GetComponent<Renderer>().material.color = highlightColor;
                         }
+                    }
+
+                    else if (!moving){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit){
+                            startSquare = selection;
+                            moving = true;
+
+                        }
+                    }
+
+                    else if (moving){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit){
+                            startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
+
+                            startSquare.GetComponentInChildren<Unit>().transform.parent = selection.transform;
+                            selection.GetComponent<SquareUnit>().unit = true;
+                            startSquare.GetComponent<SquareUnit>().unit = false;
+
+                            
+                            startSquare = null;
+                            moving = false;
+                            
+                            
+                        }
+
                     }
                 }
                 if (selection == null || (selection.GetComponent<Resources>() != null && !selection.GetComponent<Resources>().selected)){

@@ -90,10 +90,20 @@ public class TileMouseOver : MonoBehaviour
         }
     }
 
+    
+
     public void instantiateAcademy(){
         if (selectedTile.GetComponent<Resources>().building == false){
             Instantiate(academyPrefab, selectedTile.position + Vector3.up/1.3f, academyPrefab.transform.rotation);
+<<<<<<< Updated upstream
             selectedTile.GetComponent<Resources>().building = true;
+=======
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Academy;
+            selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);
+>>>>>>> Stashed changes
             Close();
         } 
     }
@@ -101,7 +111,15 @@ public class TileMouseOver : MonoBehaviour
     public void instantiateCity(){
         if (selectedTile.GetComponent<Resources>().building == false){
             Instantiate(cityPrefab, selectedTile.position + Vector3.up/2f, cityPrefab.transform.rotation);
+<<<<<<< Updated upstream
             selectedTile.GetComponent<Resources>().building = true;
+=======
+            selectedTile.GetComponent<Resources>().building = Resources.Building.City;
+            selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);
+>>>>>>> Stashed changes
             Close();
         }
     }
@@ -110,7 +128,15 @@ public class TileMouseOver : MonoBehaviour
         if (selectedTile.GetComponent<Resources>().building == false)
         {
             Instantiate(townPrefab, selectedTile.position + Vector3.up / 2f, townPrefab.transform.rotation);
+<<<<<<< Updated upstream
             selectedTile.GetComponent<Resources>().building = true;
+=======
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Town;
+            selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);
+>>>>>>> Stashed changes
             Close();
         }
     }
@@ -118,7 +144,15 @@ public class TileMouseOver : MonoBehaviour
     public void instantiateFort(){
         if (selectedTile.GetComponent<Resources>().building == false){
             Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
+<<<<<<< Updated upstream
             selectedTile.GetComponent<Resources>().building = true;
+=======
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;
+            selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);
+>>>>>>> Stashed changes
             Close();
         }
     }

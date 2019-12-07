@@ -1,0 +1,553 @@
+fileFormatVersion: 2
+guid: 9f5e457c7922ea54aadcf7b3d730b035
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: _geo_house2_UV.009
+    100002: _geo_house2_UV.010
+    100004: _geo_house2_UV.011
+    100006: _geo_tavern_UV.004
+    100008: Box001
+    100010: Box003
+    100012: Box004
+    100014: Box012
+    100016: Box013
+    100018: Box014
+    100020: Box015
+    100022: Box016
+    100024: Box017
+    100026: Box018
+    100028: Box019
+    100030: Box020
+    100032: Box021
+    100034: Box022
+    100036: Box023
+    100038: Box024
+    100040: Box025
+    100042: Box026
+    100044: Caseta001
+    100046: castle
+    100048: //RootNode
+    100050: Cristll FInestra002
+    100052: Cristll FInestra003
+    100054: Cristll FInestra004
+    100056: Cristll FInestra005
+    100058: Cristll FInestra006
+    100060: Cristll FInestra007
+    100062: Cristll FInestra008
+    100064: Cristll FInestra009
+    100066: Cristll FInestra010
+    100068: Cylinder001
+    100070: Cylinder003
+    100072: Cylinder004
+    100074: Cylinder005
+    100076: Cylinder007
+    100078: Firestra!!!
+    100080: Firestra!!!001
+    100082: Firestra!!!002
+    100084: Firestra!!!003
+    100086: Frame Finestra002
+    100088: Frame Finestra003
+    100090: Frame Finestra004
+    100092: Group001
+    100094: Group002
+    100096: Group003
+    100098: Group004
+    100100: Group005
+    100102: Group006
+    100104: Group007
+    100106: Group009
+    100108: Group010
+    100110: group267_pCylinder347.014
+    100112: group267_pCylinder347.015
+    100114: group267_pCylinder347.016
+    100116: group267_pCylinder347.038
+    100118: group267_pCylinder347.039
+    100120: group267_pCylinder347.040
+    100122: group267_pCylinder347.041
+    100124: group267_pCylinder347.042
+    100126: group267_pCylinder347.043
+    100128: group267_pCylinder347.044
+    100130: Object001
+    100132: Object002
+    100134: Object003
+    100136: Object004
+    100138: Object005
+    100140: Object006
+    100142: Object007
+    100144: Object008
+    100146: pCylinder356.022
+    100148: pCylinder356.049
+    100150: pCylinder356.050
+    100152: pCylinder356.051
+    100154: pCylinder366.009
+    100156: pCylinder366.010
+    100158: pCylinder366.011
+    100160: pCylinder366.012
+    100162: pCylinder366.013
+    100164: pCylinder366.028
+    100166: pCylinder366.029
+    100168: pCylinder366.030
+    100170: Pointy Tower EX001
+    100172: Pointy Tower EX002
+    100174: Puente004
+    100176: Puente005
+    100178: Puente006
+    100180: Puente007
+    100182: Puente008
+    100184: Puente1
+    100186: Puente2
+    100188: Puente3
+    400000: _geo_house2_UV.009
+    400002: _geo_house2_UV.010
+    400004: _geo_house2_UV.011
+    400006: _geo_tavern_UV.004
+    400008: Box001
+    400010: Box003
+    400012: Box004
+    400014: Box012
+    400016: Box013
+    400018: Box014
+    400020: Box015
+    400022: Box016
+    400024: Box017
+    400026: Box018
+    400028: Box019
+    400030: Box020
+    400032: Box021
+    400034: Box022
+    400036: Box023
+    400038: Box024
+    400040: Box025
+    400042: Box026
+    400044: Caseta001
+    400046: castle
+    400048: //RootNode
+    400050: Cristll FInestra002
+    400052: Cristll FInestra003
+    400054: Cristll FInestra004
+    400056: Cristll FInestra005
+    400058: Cristll FInestra006
+    400060: Cristll FInestra007
+    400062: Cristll FInestra008
+    400064: Cristll FInestra009
+    400066: Cristll FInestra010
+    400068: Cylinder001
+    400070: Cylinder003
+    400072: Cylinder004
+    400074: Cylinder005
+    400076: Cylinder007
+    400078: Firestra!!!
+    400080: Firestra!!!001
+    400082: Firestra!!!002
+    400084: Firestra!!!003
+    400086: Frame Finestra002
+    400088: Frame Finestra003
+    400090: Frame Finestra004
+    400092: Group001
+    400094: Group002
+    400096: Group003
+    400098: Group004
+    400100: Group005
+    400102: Group006
+    400104: Group007
+    400106: Group009
+    400108: Group010
+    400110: group267_pCylinder347.014
+    400112: group267_pCylinder347.015
+    400114: group267_pCylinder347.016
+    400116: group267_pCylinder347.038
+    400118: group267_pCylinder347.039
+    400120: group267_pCylinder347.040
+    400122: group267_pCylinder347.041
+    400124: group267_pCylinder347.042
+    400126: group267_pCylinder347.043
+    400128: group267_pCylinder347.044
+    400130: Object001
+    400132: Object002
+    400134: Object003
+    400136: Object004
+    400138: Object005
+    400140: Object006
+    400142: Object007
+    400144: Object008
+    400146: pCylinder356.022
+    400148: pCylinder356.049
+    400150: pCylinder356.050
+    400152: pCylinder356.051
+    400154: pCylinder366.009
+    400156: pCylinder366.010
+    400158: pCylinder366.011
+    400160: pCylinder366.012
+    400162: pCylinder366.013
+    400164: pCylinder366.028
+    400166: pCylinder366.029
+    400168: pCylinder366.030
+    400170: Pointy Tower EX001
+    400172: Pointy Tower EX002
+    400174: Puente004
+    400176: Puente005
+    400178: Puente006
+    400180: Puente007
+    400182: Puente008
+    400184: Puente1
+    400186: Puente2
+    400188: Puente3
+    2100000: Legno01_Mat.018
+    2100002: Albero02_Mat.004
+    2100004: 'Material #13'
+    2100006: 'Material #18'
+    2100008: 'Material #19'
+    2100010: No Name
+    2100012: 'Material #16'
+    2100014: 'Material #14'
+    2100016: 'Material #15'
+    2100018: 'Material #12'
+    2100020: Legno01_Mat.002
+    2100022: Albero02_Mat.002
+    2100024: 'Material #32'
+    2100026: Legno01_Mat.015
+    2100028: Albero02_Mat1.002
+    2100030: Albero01_Mat.002
+    2100032: 'Material #46'
+    2100034: 'Material #45'
+    2300000: _geo_house2_UV.009
+    2300002: _geo_house2_UV.010
+    2300004: _geo_house2_UV.011
+    2300006: _geo_tavern_UV.004
+    2300008: Box001
+    2300010: Box003
+    2300012: Box004
+    2300014: Box012
+    2300016: Box013
+    2300018: Box014
+    2300020: Box015
+    2300022: Box016
+    2300024: Box017
+    2300026: Box018
+    2300028: Box019
+    2300030: Box020
+    2300032: Box021
+    2300034: Box022
+    2300036: Box023
+    2300038: Box024
+    2300040: Box025
+    2300042: Box026
+    2300044: Caseta001
+    2300046: castle
+    2300048: Cristll FInestra002
+    2300050: Cristll FInestra003
+    2300052: Cristll FInestra004
+    2300054: Cristll FInestra005
+    2300056: Cristll FInestra006
+    2300058: Cristll FInestra007
+    2300060: Cristll FInestra008
+    2300062: Cristll FInestra009
+    2300064: Cristll FInestra010
+    2300066: Cylinder001
+    2300068: Cylinder003
+    2300070: Cylinder004
+    2300072: Cylinder005
+    2300074: Cylinder007
+    2300076: Firestra!!!
+    2300078: Firestra!!!001
+    2300080: Firestra!!!002
+    2300082: Firestra!!!003
+    2300084: Frame Finestra002
+    2300086: Frame Finestra003
+    2300088: Frame Finestra004
+    2300090: group267_pCylinder347.014
+    2300092: group267_pCylinder347.015
+    2300094: group267_pCylinder347.016
+    2300096: group267_pCylinder347.038
+    2300098: group267_pCylinder347.039
+    2300100: group267_pCylinder347.040
+    2300102: group267_pCylinder347.041
+    2300104: group267_pCylinder347.042
+    2300106: group267_pCylinder347.043
+    2300108: group267_pCylinder347.044
+    2300110: Object001
+    2300112: Object003
+    2300114: Object004
+    2300116: Object005
+    2300118: Object006
+    2300120: Object007
+    2300122: Object008
+    2300124: pCylinder356.022
+    2300126: pCylinder356.049
+    2300128: pCylinder356.050
+    2300130: pCylinder356.051
+    2300132: pCylinder366.009
+    2300134: pCylinder366.010
+    2300136: pCylinder366.011
+    2300138: pCylinder366.012
+    2300140: pCylinder366.013
+    2300142: pCylinder366.028
+    2300144: pCylinder366.029
+    2300146: pCylinder366.030
+    2300148: Pointy Tower EX001
+    2300150: Pointy Tower EX002
+    2300152: Puente004
+    2300154: Puente005
+    2300156: Puente006
+    2300158: Puente007
+    2300160: Puente008
+    2300162: Puente1
+    2300164: Puente2
+    2300166: Puente3
+    3300000: _geo_house2_UV.009
+    3300002: _geo_house2_UV.010
+    3300004: _geo_house2_UV.011
+    3300006: _geo_tavern_UV.004
+    3300008: Box001
+    3300010: Box003
+    3300012: Box004
+    3300014: Box012
+    3300016: Box013
+    3300018: Box014
+    3300020: Box015
+    3300022: Box016
+    3300024: Box017
+    3300026: Box018
+    3300028: Box019
+    3300030: Box020
+    3300032: Box021
+    3300034: Box022
+    3300036: Box023
+    3300038: Box024
+    3300040: Box025
+    3300042: Box026
+    3300044: Caseta001
+    3300046: castle
+    3300048: Cristll FInestra002
+    3300050: Cristll FInestra003
+    3300052: Cristll FInestra004
+    3300054: Cristll FInestra005
+    3300056: Cristll FInestra006
+    3300058: Cristll FInestra007
+    3300060: Cristll FInestra008
+    3300062: Cristll FInestra009
+    3300064: Cristll FInestra010
+    3300066: Cylinder001
+    3300068: Cylinder003
+    3300070: Cylinder004
+    3300072: Cylinder005
+    3300074: Cylinder007
+    3300076: Firestra!!!
+    3300078: Firestra!!!001
+    3300080: Firestra!!!002
+    3300082: Firestra!!!003
+    3300084: Frame Finestra002
+    3300086: Frame Finestra003
+    3300088: Frame Finestra004
+    3300090: group267_pCylinder347.014
+    3300092: group267_pCylinder347.015
+    3300094: group267_pCylinder347.016
+    3300096: group267_pCylinder347.038
+    3300098: group267_pCylinder347.039
+    3300100: group267_pCylinder347.040
+    3300102: group267_pCylinder347.041
+    3300104: group267_pCylinder347.042
+    3300106: group267_pCylinder347.043
+    3300108: group267_pCylinder347.044
+    3300110: Object001
+    3300112: Object003
+    3300114: Object004
+    3300116: Object005
+    3300118: Object006
+    3300120: Object007
+    3300122: Object008
+    3300124: pCylinder356.022
+    3300126: pCylinder356.049
+    3300128: pCylinder356.050
+    3300130: pCylinder356.051
+    3300132: pCylinder366.009
+    3300134: pCylinder366.010
+    3300136: pCylinder366.011
+    3300138: pCylinder366.012
+    3300140: pCylinder366.013
+    3300142: pCylinder366.028
+    3300144: pCylinder366.029
+    3300146: pCylinder366.030
+    3300148: Pointy Tower EX001
+    3300150: Pointy Tower EX002
+    3300152: Puente004
+    3300154: Puente005
+    3300156: Puente006
+    3300158: Puente007
+    3300160: Puente008
+    3300162: Puente1
+    3300164: Puente2
+    3300166: Puente3
+    4300000: group267_pCylinder347.040
+    4300002: Cylinder001
+    4300004: Object001
+    4300006: Box001
+    4300008: _geo_house2_UV.011
+    4300010: group267_pCylinder347.044
+    4300012: Box004
+    4300014: Puente1
+    4300016: Cylinder007
+    4300018: group267_pCylinder347.042
+    4300020: Pointy Tower EX001
+    4300022: Puente004
+    4300024: Puente005
+    4300026: Puente006
+    4300028: Puente007
+    4300030: group267_pCylinder347.041
+    4300032: _geo_house2_UV.009
+    4300034: _geo_tavern_UV.004
+    4300036: pCylinder366.013
+    4300038: group267_pCylinder347.016
+    4300040: Puente008
+    4300042: Box012
+    4300044: pCylinder366.012
+    4300046: Firestra!!!
+    4300048: Caseta001
+    4300050: Cylinder004
+    4300052: pCylinder356.022
+    4300054: Box016
+    4300056: Box017
+    4300058: Cristll FInestra005
+    4300060: Cristll FInestra004
+    4300062: Box014
+    4300064: Box015
+    4300066: Box018
+    4300068: Box019
+    4300070: Cristll FInestra006
+    4300072: Box020
+    4300074: Box021
+    4300076: Cristll FInestra007
+    4300078: Cristll FInestra002
+    4300080: Frame Finestra002
+    4300082: Frame Finestra003
+    4300084: Cristll FInestra003
+    4300086: Cristll FInestra008
+    4300088: Frame Finestra004
+    4300090: Box024
+    4300092: Cristll FInestra010
+    4300094: Box025
+    4300096: Box022
+    4300098: Cristll FInestra009
+    4300100: Box023
+    4300102: Firestra!!!001
+    4300104: _geo_house2_UV.010
+    4300106: Object008
+    4300108: group267_pCylinder347.014
+    4300110: Firestra!!!003
+    4300112: Firestra!!!002
+    4300114: Cylinder005
+    4300116: pCylinder366.011
+    4300118: pCylinder366.010
+    4300120: group267_pCylinder347.015
+    4300122: pCylinder366.009
+    4300124: Pointy Tower EX002
+    4300126: Box013
+    4300128: Object007
+    4300130: Object006
+    4300132: Object005
+    4300134: pCylinder356.049
+    4300136: group267_pCylinder347.038
+    4300138: Object004
+    4300140: pCylinder356.050
+    4300142: pCylinder366.028
+    4300144: pCylinder366.029
+    4300146: Object003
+    4300148: Puente3
+    4300150: pCylinder356.051
+    4300152: pCylinder366.030
+    4300154: group267_pCylinder347.043
+    4300156: Puente2
+    4300158: Cylinder003
+    4300160: Box003
+    4300162: Box026
+    4300164: castle
+    4300166: group267_pCylinder347.039
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

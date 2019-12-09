@@ -14,7 +14,7 @@ public class Resources : MonoBehaviour
     public int food;
     //public bool building;
 
-    public enum Building {Empty, City, Academy, Fort, Town};
+    public enum Building {Empty, City, Academy, Fort, Town, EnemyCity, EnemyAcademy, EnemyFort, EnemyTown};
 
     public Building building;
 

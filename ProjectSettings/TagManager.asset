@@ -10,6 +10,7 @@ TagManager:
   - GridManager
   - CanvasBuilding
   - InfluenceMapControl
+  - TurnManager
   layers:
   - Default
   - TransparentFX

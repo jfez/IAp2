@@ -17,12 +17,15 @@ public class CreateGameGrid : MonoBehaviour
     public GameObject playerPlaceholder;
     private Vector3 pos;
 
-    private GameObject[] casillasArray;
+    public GameObject[] casillasArray;
     private int index;
     private int wood, stone, gold, food;
 
     private GameObject casilla;
     private Grid gridScript;
+
+    private GameObject casillaCityPlayer;
+    private GameObject casillaCityAI;
     
     // Start is called before the first frame update
     void Awake()
@@ -48,6 +51,9 @@ public class CreateGameGrid : MonoBehaviour
     {
         gridScript.CreateGrid();
         CreateResources();
+        UpdateNextToCityPlayer(casillaCityPlayer);
+        UpdateNextToCityAI(casillaCityAI);
+
     }
 
     // Update is called once per frame
@@ -81,18 +87,25 @@ public class CreateGameGrid : MonoBehaviour
 
                 else{
 
-                    if (i == 14 && j == 1){
-                        //Instantiate(cityPlayer)
-                        casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
-
-                    }
-
-                    else if (i == 1 && j == 14){
+                    if (i == 14 && j == 1){ //PLAYER CITY
                         Instantiate(cityPlayer, pos + Vector3.up/2f, cityPlayer.transform.rotation);
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
                         casilla.gameObject.GetComponent<Resources>().building = Resources.Building.City;
+                        casillaCityAI = casilla;
+                        
 
                     }
+
+                    else if (i == 1 && j == 14){    //ENEMY CITY
+                        Instantiate(cityPlayer, pos + Vector3.up/2f, cityPlayer.transform.rotation);
+                        casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
+                        casilla.gameObject.GetComponent<Resources>().building = Resources.Building.EnemyCity;
+                        casillaCityPlayer = casilla;
+                        
+
+                    }
+
+                    
 
                     else if (i == 0 && j == 0){
                         GameObject unitInstanced = Instantiate(playerPlaceholder, pos + Vector3.up/2f, playerPlaceholder.transform.rotation);
@@ -249,6 +262,36 @@ public class CreateGameGrid : MonoBehaviour
             casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().food = resourceAmount;
             casillasArray[filaReflex*16+colReflex].transform.GetChild(3).gameObject.SetActive(true);
             casillasArray[filaReflex*16+colReflex].GetComponent<Resources>().UpdateResource("food");
+        }
+
+
+    }
+
+    void UpdateNextToCityPlayer(GameObject casillaCiudad){
+        foreach(GameObject casilla in casillasArray){
+            if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 1.5 && casilla != casillaCiudad){
+                if(casilla.GetComponent<SquareUnit>() != null){
+                    casilla.GetComponent<SquareUnit>().nextToCityPlayer = true;
+                    //print (casilla.GetComponent<SquareUnit>().nextToCity);
+
+                }
+                
+            }
+        }
+
+
+    }
+
+    void UpdateNextToCityAI(GameObject casillaCiudad){
+        foreach(GameObject casilla in casillasArray){
+            if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 1.5 && casilla != casillaCiudad){
+                if(casilla.GetComponent<SquareUnit>() != null){
+                    casilla.GetComponent<SquareUnit>().nextToCityAI = true;
+                    //print (casilla.GetComponent<SquareUnit>().nextToCity);
+
+                }
+                
+            }
         }
 
 

@@ -28,6 +28,8 @@ public class TileMouseOver : MonoBehaviour
     private Color whiteColor;
     private Color woodColor;
 
+    private TurnManager turnManager;
+
     
     
     private void Awake()
@@ -40,6 +42,7 @@ public class TileMouseOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turnManager = GameObject.FindGameObjectWithTag("TurnManager").GetComponent<TurnManager>();
         whiteColor = Color.white;
         woodColor = new Color (0.56f, 0.37f, 0.09f, 1f);
         //coll = GetComponent<Collider>();
@@ -50,6 +53,10 @@ public class TileMouseOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {       
+        if (!turnManager.playerTurn){
+            return;
+        }
+        
         if (_selection != null){
             rend = _selection.GetComponent<Renderer>();
             rend.material.color = normalColor;
@@ -90,7 +97,7 @@ public class TileMouseOver : MonoBehaviour
 
                         selectedTile = hitInfo.transform;
 
-                        if (!canvasBuilding.gameObject.activeInHierarchy) {
+                        if (!canvasBuilding.gameObject.activeInHierarchy && selectedTile.gameObject.GetComponent<SquareUnit>().nextToCityPlayer) {
                             canvasBuilding.gameObject.SetActive(true);
                             //Debug.Log("Activar");
                             menuOpen = true;
@@ -183,9 +190,13 @@ public class TileMouseOver : MonoBehaviour
 
     public void Close()
     {
-        menuOpen = false;
-        canvasBuilding.gameObject.SetActive(false);
-        selectedTile.GetComponent<Resources>().selected = false;
-        selectedTile.GetComponent<Renderer>().material.color = whiteColor;
+        if (selectedTile!= null){
+            menuOpen = false;
+            canvasBuilding.gameObject.SetActive(false);
+            selectedTile.GetComponent<Resources>().selected = false;
+            selectedTile.GetComponent<Renderer>().material.color = whiteColor;
+
+        }
+        
     }
 }

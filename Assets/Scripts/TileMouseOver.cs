@@ -23,6 +23,9 @@ public class TileMouseOver : MonoBehaviour
     public Canvas canvasBuilding;
     public Canvas canvasCities;
     public Canvas canvasFortin;
+    public Canvas canvasPueblo;
+    public Canvas canvasAcademia;
+    public Canvas canvasOpcionesConstruccion;
 
     private bool moving;
     private Transform startSquare;
@@ -30,9 +33,7 @@ public class TileMouseOver : MonoBehaviour
     private Color whiteColor;
     private Color woodColor;
 
-    private TurnManager turnManager;
-
-    
+    private TurnManager turnManager;    
     
     private void Awake()
     {
@@ -71,6 +72,8 @@ public class TileMouseOver : MonoBehaviour
                 canvasBuilding.gameObject.SetActive(false);
                 canvasCities.gameObject.SetActive(false);
                 canvasFortin.gameObject.SetActive(false);
+                canvasPueblo.gameObject.SetActive(false);
+                canvasAcademia.gameObject.SetActive(false);
                 menuOpen = false;
                 selectedTile.GetComponent<Resources>().selected = false;
                 selectedTile.GetComponent<Renderer>().material.color = whiteColor;
@@ -95,7 +98,7 @@ public class TileMouseOver : MonoBehaviour
                 if (rend != null){
                     normalColor = rend.material.color;
                     rend.material.color = highlightColor;
-                    if (Input.GetMouseButtonDown(0)&& selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
+                    if (Input.GetMouseButtonDown(0) && selection.CompareTag("Selectable") && selection.GetComponent<Resources>().building == Resources.Building.Empty && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
                         /*Instantiate(cityPrefab, selection.position + Vector3.up/2f, cityPrefab.transform.rotation);
                         selection.GetComponent<Resources>().building = true;*/
 
@@ -109,7 +112,7 @@ public class TileMouseOver : MonoBehaviour
                         }
 
                         else if (!canvasCities.gameObject.activeInHierarchy && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToCityPlayer 
-                        && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToCityAI && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToFortPlayer) {
+                        && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToCityAI && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToFortPlayer && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToTownPlayer && !selectedTile.gameObject.GetComponent<SquareUnit>().nextToAcademyPlayer) {
                             canvasCities.gameObject.SetActive(true);
                             //Debug.Log("Activar");
                             menuOpen = true;
@@ -118,11 +121,55 @@ public class TileMouseOver : MonoBehaviour
                         }
                     }
 
-                    if (!canvasFortin.gameObject.activeInHierarchy && Input.GetMouseButtonDown(0) && selection.CompareTag("Selectable") && selection.GetComponent<SquareUnit>().nextToFortPlayer && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
+                    if ((Input.GetMouseButtonDown(0) && selection.CompareTag("Selectable") && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen)
+                    && (selection.GetComponent<SquareUnit>().nextToFortPlayer && selection.GetComponent<SquareUnit>().nextToTownPlayer
+                    || selection.GetComponent<SquareUnit>().nextToFortPlayer && selection.GetComponent<SquareUnit>().nextToAcademyPlayer
+                    || selection.GetComponent<SquareUnit>().nextToTownPlayer && selection.GetComponent<SquareUnit>().nextToAcademyPlayer) ){  
+                        selectedTile = hitInfo.transform;
+
+                        canvasOpcionesConstruccion.gameObject.SetActive(true);
+                        menuOpen = true;
+                        selectedTile.GetComponent<Resources>().selected = true;
+                        selectedTile.GetComponent<Renderer>().material.color = highlightColor;
+
+                        if (!selection.GetComponent<SquareUnit>().nextToFortPlayer){
+                            canvasOpcionesConstruccion.transform.GetChild(0).gameObject.SetActive(false);
+                        }
+
+                        if (!selection.GetComponent<SquareUnit>().nextToAcademyPlayer){
+                            canvasOpcionesConstruccion.transform.GetChild(2).gameObject.SetActive(false);
+                        }
+
+                        if (!selection.GetComponent<SquareUnit>().nextToTownPlayer){
+                            canvasOpcionesConstruccion.transform.GetChild(1).gameObject.SetActive(false);
+                        }
+                    }
+
+                    else if (!canvasFortin.gameObject.activeInHierarchy && Input.GetMouseButtonDown(0) && selection.CompareTag("Selectable") && selection.GetComponent<SquareUnit>().nextToFortPlayer && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
                         
                         selectedTile = hitInfo.transform;
 
                         canvasFortin.gameObject.SetActive(true);
+                        menuOpen = true;
+                        selectedTile.GetComponent<Resources>().selected = true;
+                        selectedTile.GetComponent<Renderer>().material.color = highlightColor;
+                    }
+
+                    else if (!canvasPueblo.gameObject.activeInHierarchy && Input.GetMouseButtonDown(0) && selection.CompareTag("Selectable") && selection.GetComponent<SquareUnit>().nextToTownPlayer && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
+                        
+                        selectedTile = hitInfo.transform;
+
+                        canvasPueblo.gameObject.SetActive(true);
+                        menuOpen = true;
+                        selectedTile.GetComponent<Resources>().selected = true;
+                        selectedTile.GetComponent<Renderer>().material.color = highlightColor;
+                    }
+
+                    else if (!canvasAcademia.gameObject.activeInHierarchy && Input.GetMouseButtonDown(0) && selection.CompareTag("Selectable") && selection.GetComponent<SquareUnit>().nextToAcademyPlayer && !selection.GetComponent<SquareUnit>().unit && !moving && !menuOpen){
+                        
+                        selectedTile = hitInfo.transform;
+
+                        canvasAcademia.gameObject.SetActive(true);
                         menuOpen = true;
                         selectedTile.GetComponent<Resources>().selected = true;
                         selectedTile.GetComponent<Renderer>().material.color = highlightColor;
@@ -170,6 +217,7 @@ public class TileMouseOver : MonoBehaviour
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
             Close();
+            UpdateNextToAcademyPlayer(selectedTile.gameObject);
         } 
     }
 
@@ -196,6 +244,7 @@ public class TileMouseOver : MonoBehaviour
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
             Close();
+            UpdateNextToTownPlayer(selectedTile.gameObject);
         }
     }
 
@@ -231,6 +280,8 @@ public class TileMouseOver : MonoBehaviour
             canvasBuilding.gameObject.SetActive(false);
             canvasCities.gameObject.SetActive(false);
             canvasFortin.gameObject.SetActive(false);
+            canvasPueblo.gameObject.SetActive(false);
+            canvasAcademia.gameObject.SetActive(false);
             selectedTile.GetComponent<Resources>().selected = false;
             selectedTile.GetComponent<Renderer>().material.color = whiteColor;
 
@@ -239,16 +290,92 @@ public class TileMouseOver : MonoBehaviour
     }
 
     void UpdateNextToFortPlayer(GameObject casillaFort){
+
+        GameObject casillaCiudad = new GameObject();
+
+        Collider[] hitColliders = Physics.OverlapSphere(casillaFort.transform.position, 1.5f);
+
+        for (int i = 0; i < hitColliders.Length; i++){
+            if (hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
+                casillaCiudad = hitColliders[i].gameObject;
+                break;
+            }
+        }
+
+
         foreach(GameObject casilla in GetComponent<CreateGameGrid>().casillasArray){
-            if (Vector3.Distance(casilla.transform.position, casillaFort.transform.position) < 1.5 && casilla != casillaFort && !casilla.GetComponent<SquareUnit>().nextToCityPlayer
+            if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 2.5 && casilla != casillaCiudad && !casilla.GetComponent<SquareUnit>().nextToCityPlayer
             && casilla.GetComponent<Resources>().building != Resources.Building.City){
                 if(casilla.GetComponent<SquareUnit>() != null){
                     casilla.GetComponent<SquareUnit>().nextToFortPlayer = true;
-                    //print (casilla.GetComponent<SquareUnit>().nextToCity);
 
                 }
                 
             }
         }
+    }
+
+    void UpdateNextToAcademyPlayer(GameObject casillaAcademy){
+
+        GameObject casillaCiudad = new GameObject();
+
+        Collider[] hitColliders = Physics.OverlapSphere(casillaAcademy.transform.position, 1.5f);
+
+        for (int i = 0; i < hitColliders.Length; i++){
+            if (hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
+                casillaCiudad = hitColliders[i].gameObject;
+                break;
+            }
+        }
+
+
+        foreach(GameObject casilla in GetComponent<CreateGameGrid>().casillasArray){
+            if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 2.5 && casilla != casillaCiudad && !casilla.GetComponent<SquareUnit>().nextToCityPlayer
+            && casilla.GetComponent<Resources>().building != Resources.Building.City){
+                if(casilla.GetComponent<SquareUnit>() != null){
+                    casilla.GetComponent<SquareUnit>().nextToAcademyPlayer = true;
+
+                }
+                
+            }
+        }
+    }
+
+    void UpdateNextToTownPlayer(GameObject casillaTown){
+
+        GameObject casillaCiudad = new GameObject();
+        Collider[] hitColliders = Physics.OverlapSphere(casillaTown.transform.position, 1.5f);
+
+        for (int i = 0; i < hitColliders.Length; i++){
+            if (hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
+                casillaCiudad = hitColliders[i].gameObject;
+                break;
+            }
+        }
+
+        foreach(GameObject casilla in GetComponent<CreateGameGrid>().casillasArray){
+            if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 2.5 && casilla != casillaCiudad && !casilla.GetComponent<SquareUnit>().nextToCityPlayer
+            && casilla.GetComponent<Resources>().building != Resources.Building.City){
+                if(casilla.GetComponent<SquareUnit>() != null){
+                    casilla.GetComponent<SquareUnit>().nextToTownPlayer = true;
+
+                }
+            }
+        }
+    }
+
+    public void showFortCanvas(){
+        canvasOpcionesConstruccion.gameObject.SetActive(false);
+        canvasFortin.gameObject.SetActive(true);
+    }
+
+    public void showAcademyCanvas(){
+        canvasOpcionesConstruccion.gameObject.SetActive(false);
+        canvasAcademia.gameObject.SetActive(true);
+    }
+
+    public void showTownCanvas(){
+        canvasOpcionesConstruccion.gameObject.SetActive(false);
+        canvasPueblo.gameObject.SetActive(true);
     }
 }

@@ -274,13 +274,9 @@ public class CreateGameGrid : MonoBehaviour
                 if(casilla.GetComponent<SquareUnit>() != null){
                     casilla.GetComponent<SquareUnit>().nextToCityPlayer = true;
                     //print (casilla.GetComponent<SquareUnit>().nextToCity);
-
                 }
-                
             }
         }
-
-
     }
 
     public void UpdateNextToCityAI(GameObject casillaCiudad){

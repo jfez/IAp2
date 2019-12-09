@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 1.5
-  _map: {fileID: 7253275079073765628, guid: 274f4aecfab44c64b8653cceb07684df, type: 3}
+  _map: {fileID: 0}
   _speed: 1.5
 --- !u!1 &37800236944420372
 GameObject:

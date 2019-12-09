@@ -7,6 +7,7 @@ public class SquareUnit : MonoBehaviour
     public bool unit;
     public bool nextToCityPlayer;
     public bool nextToCityAI;
+    public bool nextToFortPlayer;
     
     // Start is called before the first frame update
     void Awake()
@@ -14,6 +15,7 @@ public class SquareUnit : MonoBehaviour
         unit = false;
         nextToCityPlayer = false;
         nextToCityAI = false;
+        nextToFortPlayer = false;
     }
 
     // Update is called once per frame

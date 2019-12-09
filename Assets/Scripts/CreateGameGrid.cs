@@ -87,19 +87,19 @@ public class CreateGameGrid : MonoBehaviour
 
                 else{
 
-                    if (i == 14 && j == 1){ //PLAYER CITY
+                    if (i == 1 && j == 14){ //ENEMY CITY
                         Instantiate(cityPlayer, pos + Vector3.up/2f, cityPlayer.transform.rotation);
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
-                        casilla.gameObject.GetComponent<Resources>().building = Resources.Building.City;
+                        casilla.gameObject.GetComponent<Resources>().building = Resources.Building.EnemyCity;
                         casillaCityAI = casilla;
                         
 
                     }
 
-                    else if (i == 1 && j == 14){    //ENEMY CITY
+                    else if (i == 14 && j == 1){    //PLAYER CITY
                         Instantiate(cityPlayer, pos + Vector3.up/2f, cityPlayer.transform.rotation);
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
-                        casilla.gameObject.GetComponent<Resources>().building = Resources.Building.EnemyCity;
+                        casilla.gameObject.GetComponent<Resources>().building = Resources.Building.City;
                         casillaCityPlayer = casilla;
                         
 
@@ -267,8 +267,9 @@ public class CreateGameGrid : MonoBehaviour
 
     }
 
-    void UpdateNextToCityPlayer(GameObject casillaCiudad){
+    public void UpdateNextToCityPlayer(GameObject casillaCiudad){
         foreach(GameObject casilla in casillasArray){
+            
             if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 1.5 && casilla != casillaCiudad){
                 if(casilla.GetComponent<SquareUnit>() != null){
                     casilla.GetComponent<SquareUnit>().nextToCityPlayer = true;
@@ -282,7 +283,7 @@ public class CreateGameGrid : MonoBehaviour
 
     }
 
-    void UpdateNextToCityAI(GameObject casillaCiudad){
+    public void UpdateNextToCityAI(GameObject casillaCiudad){
         foreach(GameObject casilla in casillasArray){
             if (Vector3.Distance(casilla.transform.position, casillaCiudad.transform.position) < 1.5 && casilla != casillaCiudad){
                 if(casilla.GetComponent<SquareUnit>() != null){

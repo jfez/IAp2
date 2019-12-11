@@ -74,6 +74,7 @@ public class TileMouseOver : MonoBehaviour
                 canvasFortin.gameObject.SetActive(false);
                 canvasPueblo.gameObject.SetActive(false);
                 canvasAcademia.gameObject.SetActive(false);
+                canvasOpcionesConstruccion.gameObject.SetActive(false);
                 menuOpen = false;
                 selectedTile.GetComponent<Resources>().selected = false;
                 selectedTile.GetComponent<Renderer>().material.color = whiteColor;
@@ -132,16 +133,20 @@ public class TileMouseOver : MonoBehaviour
                         selectedTile.GetComponent<Resources>().selected = true;
                         selectedTile.GetComponent<Renderer>().material.color = highlightColor;
 
+                        canvasOpcionesConstruccion.transform.GetChild(7).gameObject.SetActive(true);
+                        canvasOpcionesConstruccion.transform.GetChild(9).gameObject.SetActive(true);
+                        canvasOpcionesConstruccion.transform.GetChild(8).gameObject.SetActive(true);
+
                         if (!selection.GetComponent<SquareUnit>().nextToFortPlayer){
-                            canvasOpcionesConstruccion.transform.GetChild(0).gameObject.SetActive(false);
+                            canvasOpcionesConstruccion.transform.GetChild(7).gameObject.SetActive(false);
                         }
 
                         if (!selection.GetComponent<SquareUnit>().nextToAcademyPlayer){
-                            canvasOpcionesConstruccion.transform.GetChild(2).gameObject.SetActive(false);
+                            canvasOpcionesConstruccion.transform.GetChild(9).gameObject.SetActive(false);
                         }
 
                         if (!selection.GetComponent<SquareUnit>().nextToTownPlayer){
-                            canvasOpcionesConstruccion.transform.GetChild(1).gameObject.SetActive(false);
+                            canvasOpcionesConstruccion.transform.GetChild(8).gameObject.SetActive(false);
                         }
                     }
 
@@ -282,6 +287,7 @@ public class TileMouseOver : MonoBehaviour
             canvasFortin.gameObject.SetActive(false);
             canvasPueblo.gameObject.SetActive(false);
             canvasAcademia.gameObject.SetActive(false);
+            canvasOpcionesConstruccion.gameObject.SetActive(false);
             selectedTile.GetComponent<Resources>().selected = false;
             selectedTile.GetComponent<Renderer>().material.color = whiteColor;
 
@@ -293,10 +299,10 @@ public class TileMouseOver : MonoBehaviour
 
         GameObject casillaCiudad = new GameObject();
 
-        Collider[] hitColliders = Physics.OverlapSphere(casillaFort.transform.position, 1.5f);
+        Collider[] hitColliders = Physics.OverlapSphere(casillaFort.transform.position, 2f);
 
         for (int i = 0; i < hitColliders.Length; i++){
-            if (hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
+            if (hitColliders[i].GetComponent<Resources>() != null && hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
                 casillaCiudad = hitColliders[i].gameObject;
                 break;
             }
@@ -319,10 +325,10 @@ public class TileMouseOver : MonoBehaviour
 
         GameObject casillaCiudad = new GameObject();
 
-        Collider[] hitColliders = Physics.OverlapSphere(casillaAcademy.transform.position, 1.5f);
+        Collider[] hitColliders = Physics.OverlapSphere(casillaAcademy.transform.position, 2f);
 
         for (int i = 0; i < hitColliders.Length; i++){
-            if (hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
+            if (hitColliders[i].GetComponent<Resources>() != null && hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
                 casillaCiudad = hitColliders[i].gameObject;
                 break;
             }
@@ -344,10 +350,10 @@ public class TileMouseOver : MonoBehaviour
     void UpdateNextToTownPlayer(GameObject casillaTown){
 
         GameObject casillaCiudad = new GameObject();
-        Collider[] hitColliders = Physics.OverlapSphere(casillaTown.transform.position, 1.5f);
+        Collider[] hitColliders = Physics.OverlapSphere(casillaTown.transform.position, 2f);
 
         for (int i = 0; i < hitColliders.Length; i++){
-            if (hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
+            if (hitColliders[i].GetComponent<Resources>() != null && hitColliders[i].GetComponent<Resources>().building == Resources.Building.City){
                 casillaCiudad = hitColliders[i].gameObject;
                 break;
             }

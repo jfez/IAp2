@@ -5061,7 +5061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658772295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5081,11 +5081,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _material: {fileID: 2100000, guid: 4dec0f3d3712e2d4fb8a1c12ddd80fbf, type: 2}
-  _neutralColor: {r: 1, g: 1, b: 1, a: 1}
-  _positiveColor: {r: 1, g: 0, b: 0, a: 1}
-  _positive2Color: {r: 1, g: 0.9176218, b: 0, a: 1}
-  _negativeColor: {r: 0, g: 0, b: 1, a: 1}
-  _negative2Color: {r: 0, g: 0.7287984, b: 1, a: 1}
+  _neutralColor: {r: 1, g: 1, b: 1, a: 0}
+  _positiveColor: {r: 1, g: 0, b: 0, a: 0.8}
+  _positive2Color: {r: 1, g: 0.9176218, b: 0, a: 0.8}
+  _negativeColor: {r: 0, g: 0, b: 1, a: 0.627451}
+  _negative2Color: {r: 0, g: 0.7287984, b: 1, a: 0.5019608}
 --- !u!1 &1675907106
 GameObject:
   m_ObjectHideFlags: 0
@@ -8088,7 +8088,7 @@ PrefabInstance:
     - target: {fileID: 7253275079073765629, guid: 274f4aecfab44c64b8653cceb07684df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7253275079073765629, guid: 274f4aecfab44c64b8653cceb07684df,
         type: 3}
@@ -8134,6 +8134,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253275079073765630, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _neutralColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253275079073765630, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _positiveColor.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253275079073765630, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _positive2Color.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253275079073765630, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _negativeColor.a
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253275079073765630, guid: 274f4aecfab44c64b8653cceb07684df,
+        type: 3}
+      propertyPath: _negative2Color.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 274f4aecfab44c64b8653cceb07684df, type: 3}

@@ -12,6 +12,7 @@ TagManager:
   - InfluenceMapControl
   - TurnManager
   - City
+  - Edificio
   layers:
   - Default
   - TransparentFX

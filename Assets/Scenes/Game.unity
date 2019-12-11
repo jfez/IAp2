@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2741,7 +2741,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 900493025}
-        m_MethodName: instantiateTank
+        m_MethodName: instantiateJornalero
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2865,7 +2865,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 900493025}
-        m_MethodName: instantiateTank
+        m_MethodName: instantiateWarrior
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3707,7 +3707,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3601
+    m_Bits: 7697
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8600000, guid: efd8f5a52ce11d440a1a2fdbbe749de5, type: 2}
   m_TargetDisplay: 0
@@ -8547,6 +8547,24 @@ PrefabInstance:
       propertyPath: explorerPrefab
       value: 
       objectReference: {fileID: 8230759879895505261, guid: 9e13805b48cbb9a43a03e6dfefad7cd1,
+        type: 3}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: rangerPrefab
+      value: 
+      objectReference: {fileID: 4573072815079674356, guid: 5f14424226fd5524ba078e140996653f,
+        type: 3}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: warriorPrefab
+      value: 
+      objectReference: {fileID: 4763221025921738021, guid: 634434d37982d204bb5b7045681e4ba8,
+        type: 3}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: jornaleroPrefab
+      value: 
+      objectReference: {fileID: 2926336530569753481, guid: 513484913b5f48c4982bc0c51682ff00,
         type: 3}
     - target: {fileID: 6853310567263366949, guid: 86ac45dbcf65eac41bb50d21f741474d,
         type: 3}

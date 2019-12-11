@@ -12,6 +12,9 @@ public class TileMouseOver : MonoBehaviour
     public GameObject fortPrefab;
 
     public GameObject explorerPrefab;
+    public GameObject warriorPrefab;
+    public GameObject rangerPrefab;
+    public GameObject jornaleroPrefab;
 
     public LayerMask UIMask;
     Color normalColor;
@@ -296,16 +299,55 @@ public class TileMouseOver : MonoBehaviour
     }
 
     public void instantiateRanger(){
-        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
-            Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
-            selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;
-            selectedTile.GetChild(0).gameObject.SetActive(false);
+        if (!selectedTile.GetComponent<SquareUnit>().unit)
+        {
+            GameObject unitInstanced = Instantiate(rangerPrefab, selectedTile.position + Vector3.up / 2f, rangerPrefab.transform.rotation);
+
+            /*selectedTile.GetChild(0).gameObject.SetActive(false);
             selectedTile.GetChild(1).gameObject.SetActive(false);
             selectedTile.GetChild(2).gameObject.SetActive(false);
-            selectedTile.GetChild(3).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);*/
+
+            unitInstanced.transform.parent = selectedTile.transform;
+            selectedTile.GetComponent<SquareUnit>().unit = true;
             Close();
         }
     }
+
+    public void instantiateWarrior()
+    {
+        if (!selectedTile.GetComponent<SquareUnit>().unit)
+        {
+            GameObject unitInstanced = Instantiate(warriorPrefab, selectedTile.position + Vector3.up / 2f, warriorPrefab.transform.rotation);
+
+            /*selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);*/
+
+            unitInstanced.transform.parent = selectedTile.transform;
+            selectedTile.GetComponent<SquareUnit>().unit = true;
+            Close();
+        }
+    }
+
+    public void instantiateJornalero()
+    {
+        if (!selectedTile.GetComponent<SquareUnit>().unit)
+        {
+            GameObject unitInstanced = Instantiate(jornaleroPrefab, selectedTile.position + Vector3.up / 2f, jornaleroPrefab.transform.rotation);
+
+            /*selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);*/
+
+            unitInstanced.transform.parent = selectedTile.transform;
+            selectedTile.GetComponent<SquareUnit>().unit = true;
+            Close();
+        }
+    }
+
 
     public void Close()
     {

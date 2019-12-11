@@ -2924,7 +2924,7 @@ GameObject:
   - component: {fileID: 8729863616195734403}
   - component: {fileID: 1302155027592873191}
   - component: {fileID: 6191397022371746699}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: GroundFog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class desactivarNiebla : MonoBehaviour
 { 
-    public Collider collider;
+    //public Collider myCollider;
 
     // Start is called before the first frame update
     void Awake()
     {
-        collider.GetComponent<BoxCollider>();
+        //myCollider.GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class desactivarNiebla : MonoBehaviour
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Edificio")
         {
             gameObject.SetActive(false);
-            Debug.Log("entra");
+            //Debug.Log("entra");
         }
     }
 }

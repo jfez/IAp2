@@ -13,6 +13,7 @@ TagManager:
   - TurnManager
   - City
   - Edificio
+  - EdificioIA
   layers:
   - Default
   - TransparentFX

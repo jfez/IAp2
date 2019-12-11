@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 6b0af3ef07cad3d43931a77fe4becef3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box028
+    100002: Castell
+    100004: //RootNode
+    100006: group119_pCube833.026
+    100008: group119_pCube833.027
+    100010: group119_pCube833.028
+    100012: group119_pCube833.029
+    100014: group119_pCube833.030
+    100016: group119_pCube833.031
+    100018: group119_pCube833.032
+    100020: group119_pCube833.033
+    100022: group119_pCube833.034
+    100024: group119_pCube833.035
+    100026: group119_pCube833.036
+    100028: Object009
+    100030: Object010
+    100032: Object011
+    100034: Object012
+    100036: Object013
+    100038: pCube2668.003
+    100040: pCube2668.004
+    100042: pCube2668.005
+    100044: pCube2668.006
+    100046: polySurface103
+    400000: Box028
+    400002: Castell
+    400004: //RootNode
+    400006: group119_pCube833.026
+    400008: group119_pCube833.027
+    400010: group119_pCube833.028
+    400012: group119_pCube833.029
+    400014: group119_pCube833.030
+    400016: group119_pCube833.031
+    400018: group119_pCube833.032
+    400020: group119_pCube833.033
+    400022: group119_pCube833.034
+    400024: group119_pCube833.035
+    400026: group119_pCube833.036
+    400028: Object009
+    400030: Object010
+    400032: Object011
+    400034: Object012
+    400036: Object013
+    400038: pCube2668.003
+    400040: pCube2668.004
+    400042: pCube2668.005
+    400044: pCube2668.006
+    400046: polySurface103
+    2100000: 'Material #108'
+    2100002: 'Material #107'
+    2100004: 'Material #110'
+    2100006: 'Material #109'
+    2100008: 'Material #73'
+    2100010: 'Material #14'
+    2100012: 'Material #84 Slot #20'
+    2300000: Box028
+    2300002: Castell
+    2300004: group119_pCube833.026
+    2300006: group119_pCube833.027
+    2300008: group119_pCube833.028
+    2300010: group119_pCube833.029
+    2300012: group119_pCube833.030
+    2300014: group119_pCube833.031
+    2300016: group119_pCube833.032
+    2300018: group119_pCube833.033
+    2300020: group119_pCube833.034
+    2300022: group119_pCube833.035
+    2300024: group119_pCube833.036
+    2300026: Object009
+    2300028: Object010
+    2300030: Object011
+    2300032: Object012
+    2300034: Object013
+    2300036: pCube2668.003
+    2300038: pCube2668.004
+    2300040: pCube2668.005
+    2300042: pCube2668.006
+    2300044: polySurface103
+    3300000: Box028
+    3300002: Castell
+    3300004: group119_pCube833.026
+    3300006: group119_pCube833.027
+    3300008: group119_pCube833.028
+    3300010: group119_pCube833.029
+    3300012: group119_pCube833.030
+    3300014: group119_pCube833.031
+    3300016: group119_pCube833.032
+    3300018: group119_pCube833.033
+    3300020: group119_pCube833.034
+    3300022: group119_pCube833.035
+    3300024: group119_pCube833.036
+    3300026: Object009
+    3300028: Object010
+    3300030: Object011
+    3300032: Object012
+    3300034: Object013
+    3300036: pCube2668.003
+    3300038: pCube2668.004
+    3300040: pCube2668.005
+    3300042: pCube2668.006
+    3300044: polySurface103
+    4300000: pCube2668.006
+    4300002: group119_pCube833.030
+    4300004: group119_pCube833.028
+    4300006: group119_pCube833.026
+    4300008: pCube2668.004
+    4300010: group119_pCube833.029
+    4300012: Object012
+    4300014: Object011
+    4300016: group119_pCube833.034
+    4300018: group119_pCube833.027
+    4300020: group119_pCube833.033
+    4300022: group119_pCube833.035
+    4300024: polySurface103
+    4300026: Object013
+    4300028: Object010
+    4300030: pCube2668.005
+    4300032: group119_pCube833.031
+    4300034: group119_pCube833.032
+    4300036: pCube2668.003
+    4300038: group119_pCube833.036
+    4300040: Object009
+    4300042: Box028
+    4300044: Castell
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

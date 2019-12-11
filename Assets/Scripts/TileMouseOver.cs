@@ -11,6 +11,8 @@ public class TileMouseOver : MonoBehaviour
     public GameObject townPrefab;
     public GameObject fortPrefab;
 
+    public GameObject explorerPrefab;
+
     public LayerMask UIMask;
     Color normalColor;
     //private Collider coll;
@@ -267,6 +269,33 @@ public class TileMouseOver : MonoBehaviour
     }
 
     public void instantiateTank(){
+        if (!selectedTile.GetComponent<SquareUnit>().unit){
+            Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
+            selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;
+            selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);
+            Close();
+        }
+    }
+
+    public void instantiateExplorer(){
+        if (!selectedTile.GetComponent<SquareUnit>().unit){
+            GameObject unitInstanced = Instantiate(explorerPrefab, selectedTile.position + Vector3.up/2f, explorerPrefab.transform.rotation);
+            
+            /*selectedTile.GetChild(0).gameObject.SetActive(false);
+            selectedTile.GetChild(1).gameObject.SetActive(false);
+            selectedTile.GetChild(2).gameObject.SetActive(false);
+            selectedTile.GetChild(3).gameObject.SetActive(false);*/   
+                   
+            unitInstanced.transform.parent = selectedTile.transform;
+            selectedTile.GetComponent<SquareUnit>().unit = true;
+            Close();
+        }
+    }
+
+    public void instantiateRanger(){
         if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
             Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;

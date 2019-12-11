@@ -26,10 +26,10 @@ public class PlayerResources : MonoBehaviour
     {
         gameGrid = GameObject.FindGameObjectWithTag("GridManager").GetComponent<CreateGameGrid>();
         
-        wood = 0;
-        stone = 0;
-        gold = 0;
-        food = 0;
+        wood = 100;
+        stone = 100;
+        gold = 10;
+        food = 10;
 
         textFood.text = food.ToString();
         textWood.text = wood.ToString();

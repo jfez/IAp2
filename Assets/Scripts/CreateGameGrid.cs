@@ -13,6 +13,7 @@ public class CreateGameGrid : MonoBehaviour
     public GameObject casillaBridge;
 
     public GameObject cityPlayer;
+    public GameObject cityIA;
 
     public GameObject playerPlaceholder;
     private Vector3 pos;
@@ -88,7 +89,7 @@ public class CreateGameGrid : MonoBehaviour
                 else{
 
                     if (i == 1 && j == 14){ //ENEMY CITY
-                        Instantiate(cityPlayer, pos + Vector3.up/2f, cityPlayer.transform.rotation);
+                        Instantiate(cityIA, pos + Vector3.up/2f, cityPlayer.transform.rotation);
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
                         casilla.gameObject.GetComponent<Resources>().building = Resources.Building.EnemyCity;
                         casillaCityAI = casilla;
@@ -106,15 +107,15 @@ public class CreateGameGrid : MonoBehaviour
                     }
 
                     
-
-                    else if (i == 0 && j == 0){
+                    //PLAYER placeholder
+                    /*else if (i == 0 && j == 0){
                         GameObject unitInstanced = Instantiate(playerPlaceholder, pos + Vector3.up/2f, playerPlaceholder.transform.rotation);
                         
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);
                         unitInstanced.transform.parent = casilla.transform;
                         casilla.gameObject.GetComponent<SquareUnit>().unit = true;
                         
-                    }
+                    }*/
 
                     else{
                         casilla = Instantiate(casillaInstanced, pos, Quaternion.identity, grid.transform);

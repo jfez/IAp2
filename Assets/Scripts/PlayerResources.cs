@@ -46,8 +46,16 @@ public class PlayerResources : MonoBehaviour
     public void UpdateResources(){
 
         foreach(GameObject casilla in gameGrid.casillasArray){
-            if(casilla.GetComponent<SquareUnit>() != null && casilla.GetComponent<Resources>()!= null && 
-            (casilla.GetComponent<SquareUnit>().nextToCityPlayer || casilla.GetComponent<Resources>().building == Resources.Building.City)){
+            bool recolectando = false;
+            
+            if (casilla.transform.childCount >= 8)
+            {
+                if(casilla.transform.GetChild(7).tag == "jornalero")
+                recolectando = casilla.transform.GetChild(7).GetComponent<JornaleroScript>().recolectando;
+            }
+            
+            if (casilla.GetComponent<SquareUnit>() != null && casilla.GetComponent<Resources>() != null &&
+            (casilla.GetComponent<SquareUnit>().nextToCityPlayer || casilla.GetComponent<Resources>().building == Resources.Building.City || recolectando == true)){
                 wood += casilla.GetComponent<Resources>().wood;
                 stone += casilla.GetComponent<Resources>().stone;
                 gold += casilla.GetComponent<Resources>().gold;

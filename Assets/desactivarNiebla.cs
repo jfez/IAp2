@@ -20,7 +20,7 @@ public class desactivarNiebla : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Edificio")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Edificio" || other.gameObject.tag == "jornalero")
         {
             gameObject.SetActive(false);
             //Debug.Log("entra");

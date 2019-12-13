@@ -60,6 +60,10 @@ public class SimplePropagator : MonoBehaviour, IPropagator
 		_move.SimpleMove(_velocity);*/
 	}
 
+	public void removePropagator(){
+		_map.DeletePropagator(this);
+	}
+
 	/*void ChooseNewDestination()
 	{
 		_destination = PickDestination();

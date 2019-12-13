@@ -28,7 +28,9 @@ public class Unit : MonoBehaviour {
 			path = newPath;
 			targetIndex = 0;
 			StopCoroutine("FollowPath");
-			StartCoroutine("FollowPath");
+			if (this.gameObject.activeInHierarchy){
+				StartCoroutine("FollowPath");
+			}
 		}
 	}
 
@@ -46,7 +48,6 @@ public class Unit : MonoBehaviour {
 
 			transform.position = Vector3.MoveTowards(transform.position,currentWaypoint,speed * Time.deltaTime);
 			yield return null;
-
 		}
 	}
 

@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 114434272673731546}
   - component: {fileID: 65995062908610376}
   - component: {fileID: 54783577999399230}
+  - component: {fileID: 3289723442274486997}
   m_Layer: 0
   m_Name: guerrero
   m_TagString: Player
@@ -254,6 +255,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3289723442274486997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763221025921738021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae20149654612e428efd71030a2d988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poder: 10
 --- !u!1 &4763221025921738023
 GameObject:
   m_ObjectHideFlags: 0

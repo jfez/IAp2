@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 65468634909682526}
   - component: {fileID: 54955452991381484}
   - component: {fileID: 5605084261704016176}
+  - component: {fileID: 114988316173475634}
   m_Layer: 0
   m_Name: jornalero
   m_TagString: jornalero
@@ -422,6 +423,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recolectando: 1
+--- !u!114 &114988316173475634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926336530569753481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae20149654612e428efd71030a2d988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poder: 1
 --- !u!1 &2926336530569753483
 GameObject:
   m_ObjectHideFlags: 0

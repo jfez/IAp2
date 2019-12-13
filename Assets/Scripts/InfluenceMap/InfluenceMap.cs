@@ -72,6 +72,10 @@ public class InfluenceMap : GridData
 		_propagators.Add(p);
 	}
 
+	public void DeletePropagator(IPropagator p){
+		_propagators.Remove(p);
+	}
+
 	public void Propagate()
 	{
 		UpdatePropagators();

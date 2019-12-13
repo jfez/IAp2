@@ -45,6 +45,12 @@ public class InfluenceMapControl : MonoBehaviour
 		_influenceMap.RegisterPropagator(p);
 	}
 
+	public void DeletePropagator(IPropagator p)
+	{
+		_influenceMap.DeletePropagator(p);
+		PropagationUpdate();
+	}
+
 	public Vector2I GetGridPosition(Vector3 pos)
 	{
 		int x = (int)((pos.x - _bottomLeft.position.x)/_gridSize);
@@ -66,7 +72,7 @@ public class InfluenceMapControl : MonoBehaviour
 		InvokeRepeating("PropagationUpdate", 0.001f, 1.0f/_updateFrequency);
 	}
 
-	void PropagationUpdate()
+	public void PropagationUpdate()
 	{
 		_influenceMap.Propagate();
 	}

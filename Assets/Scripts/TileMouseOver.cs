@@ -38,7 +38,7 @@ public class TileMouseOver : MonoBehaviour
     private Color whiteColor;
     private Color woodColor;
 
-    private TurnManager turnManager;    
+    private TurnManager turnManager;
     
     private void Awake()
     {
@@ -60,7 +60,7 @@ public class TileMouseOver : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
+    {
         if (!turnManager.playerTurn){
             return;
         }
@@ -194,7 +194,7 @@ public class TileMouseOver : MonoBehaviour
                     }
 
                     else if (moving){
-                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit && selection.GetComponent<Resources>().building == Resources.Building.Empty){
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 
                             startSquare.GetComponentInChildren<Unit>().transform.parent = selection.transform;
@@ -203,11 +203,29 @@ public class TileMouseOver : MonoBehaviour
 
                             
                             startSquare = null;
-                            moving = false;
-                            
-                            
-                        }
+                            moving = false; 
+                        } else if(Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit/* && selection.GetComponentInChildren<Unit>().gameObject.tag == "Enemy"*/){
+                            startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 
+                            startSquare.GetComponentInChildren<combatStats>().combate(selection.GetComponentInChildren<combatStats>().gameObject);
+
+                            if (startSquare.GetComponentInChildren<Unit>() != null){
+                                startSquare.GetComponentInChildren<Unit>().transform.parent = selection.transform;
+                            }
+                            selection.GetComponent<SquareUnit>().unit = true;
+                            startSquare.GetComponent<SquareUnit>().unit = false;
+                            
+                            startSquare = null;
+                            moving = false; 
+                        } else if (Input.GetMouseButtonDown(0) && selection.GetComponent<Resources>() != null && selection.GetComponent<Resources>().building == Resources.Building.EnemyCity){
+                            startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
+                            startSquare.GetComponentInChildren<combatStats>().atacarCiudad(GameObject.FindGameObjectWithTag("EdificioIA"));
+
+                            startSquare.GetComponent<SquareUnit>().unit = false;
+
+                            startSquare = null;
+                            moving = false; 
+                        }
                     }
                 }
                 if (selection == null || (selection.GetComponent<Resources>() != null && !selection.GetComponent<Resources>().selected) || selection.CompareTag("SelectableBridge")){

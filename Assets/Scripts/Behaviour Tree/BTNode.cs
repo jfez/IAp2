@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class BTNode : ScriptableObject
 {
-    public abstract BTNodeState Evaluate();
+    public abstract BTNodeState Evaluate(BehaviourController controller);
 }

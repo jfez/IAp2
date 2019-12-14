@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c15c6706c15da0544bf36e8d4607739a, type: 3}
-  m_Name: Main Selector
+  m_Script: {fileID: 11500000, guid: a0926fe4ec7c8464d81c34d52c2bba67, type: 3}
+  m_Name: Check Town
   m_EditorClassIdentifier: 
-  nodes: []

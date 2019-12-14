@@ -7,11 +7,11 @@ public class BTSelector : BTNode
 {
     public BTNode[] nodes;
 
-    public override BTNodeState Evaluate()
+    public override BTNodeState Evaluate(BehaviourController controller)
     {
         foreach (BTNode node in nodes)
         {
-            BTNodeState currentNodeState = node.Evaluate();
+            BTNodeState currentNodeState = node.Evaluate(controller);
             switch (currentNodeState)
             {
                 case BTNodeState.SUCCESS:

@@ -7,6 +7,7 @@ public class TurnManager : MonoBehaviour
     public bool playerTurn;
     private TileMouseOver gameGrid;
     private PlayerResources playerResources;
+    private BehaviourController behaviourController;
     
     void Start()
     {
@@ -15,6 +16,7 @@ public class TurnManager : MonoBehaviour
         playerTurn = true;
         gameGrid = GameObject.FindGameObjectWithTag("GridManager").GetComponent<TileMouseOver>();
         playerResources = GetComponent<PlayerResources>();
+        behaviourController = GetComponent<BehaviourController>();
     }
 
     public void ClickButton(){
@@ -31,9 +33,11 @@ public class TurnManager : MonoBehaviour
     IEnumerator TurnCoroutine()
     {
         playerTurn = false;
-        
+
         //Print the time of when the function is first called.
         //Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        behaviourController.PerformTurn_AI(Random.Range(3,8));
 
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(5);

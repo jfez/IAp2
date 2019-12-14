@@ -8556,6 +8556,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2926336530569753481, guid: 513484913b5f48c4982bc0c51682ff00,
         type: 3}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: costeGuerrero
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: costeArquero
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: costeTanque
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: costeJornalero
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: costeExplorador
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853310567263366946, guid: 86ac45dbcf65eac41bb50d21f741474d,
+        type: 3}
+      propertyPath: costeCiudad
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6853310567263366949, guid: 86ac45dbcf65eac41bb50d21f741474d,
         type: 3}
       propertyPath: m_LocalPosition.x

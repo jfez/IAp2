@@ -25,6 +25,25 @@ public class TileMouseOver : MonoBehaviour
     private Transform selectedTile;
     public bool menuOpen = false;
 
+    [Tooltip("Oro")]
+    public int costeCiudad = 30;
+    [Tooltip("Piedra")]
+    public int costeFuerte = 80;
+    [Tooltip("Madera")]
+    public int costeAcademia = 80;
+    [Tooltip("Madera")]
+    public int costePueblo = 80;
+    [Tooltip("Comida")]
+    public int costeGuerrero = 7;
+    [Tooltip("Comida")]
+    public int costeArquero = 5;
+    [Tooltip("Comida")]
+    public int costeTanque = 9;
+    [Tooltip("Comida")]
+    public int costeJornalero = 3;
+    [Tooltip("Comida")]
+    public int costeExplorador = 5;
+
     public Canvas canvasBuilding;
     public Canvas canvasCities;
     public Canvas canvasFortin;
@@ -237,33 +256,37 @@ public class TileMouseOver : MonoBehaviour
     }
 
     public void instantiateAcademy(){
-        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().wood >= costeAcademia){
             Instantiate(academyPrefab, selectedTile.position + Vector3.up/1.3f, academyPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.Academy;
             selectedTile.GetChild(0).gameObject.SetActive(false);
             selectedTile.GetChild(1).gameObject.SetActive(false);
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().wood -= costeAcademia;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
             UpdateNextToAcademyPlayer(selectedTile.gameObject);
         } 
     }
 
     public void instantiateCity(){
-        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().gold >= costeCiudad){
             Instantiate(cityPrefab, selectedTile.position + Vector3.up/2f, cityPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.City;
             selectedTile.GetChild(0).gameObject.SetActive(false);
             selectedTile.GetChild(1).gameObject.SetActive(false);
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().gold -=costeCiudad;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
             GetComponent<CreateGameGrid>().UpdateNextToCityPlayer(selectedTile.gameObject);
         }
     }
 
     public void instantiateTown(){
-        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty)
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().wood >= costePueblo)
         {
             Instantiate(townPrefab, selectedTile.position + Vector3.up / 2f, townPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.Town;
@@ -271,38 +294,44 @@ public class TileMouseOver : MonoBehaviour
             selectedTile.GetChild(1).gameObject.SetActive(false);
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().wood -= costePueblo;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
             UpdateNextToTownPlayer(selectedTile.gameObject);
         }
     }
 
     public void instantiateFort(){
-        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().stone >= costeFuerte){
             Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;
             selectedTile.GetChild(0).gameObject.SetActive(false);
             selectedTile.GetChild(1).gameObject.SetActive(false);
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().stone -= costeFuerte;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
             UpdateNextToFortPlayer(selectedTile.gameObject);
         }
     }
 
     public void instantiateTank(){
-        if (!selectedTile.GetComponent<SquareUnit>().unit){
+        if (!selectedTile.GetComponent<SquareUnit>().unit && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food >= costeTanque){
             Instantiate(fortPrefab, selectedTile.position + Vector3.up/2f, fortPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.Fort;
             selectedTile.GetChild(0).gameObject.SetActive(false);
             selectedTile.GetChild(1).gameObject.SetActive(false);
             selectedTile.GetChild(2).gameObject.SetActive(false);
             selectedTile.GetChild(3).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food -= costeTanque;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
         }
     }
 
     public void instantiateExplorer(){
-        if (!selectedTile.GetComponent<SquareUnit>().unit){
+        if (!selectedTile.GetComponent<SquareUnit>().unit && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food >= costeExplorador){
             GameObject unitInstanced = Instantiate(explorerPrefab, selectedTile.position + Vector3.up/2f, explorerPrefab.transform.rotation);
             
             /*selectedTile.GetChild(0).gameObject.SetActive(false);
@@ -312,12 +341,14 @@ public class TileMouseOver : MonoBehaviour
                    
             unitInstanced.transform.parent = selectedTile.transform;
             selectedTile.GetComponent<SquareUnit>().unit = true;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food -= costeExplorador;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
         }
     }
 
     public void instantiateRanger(){
-        if (!selectedTile.GetComponent<SquareUnit>().unit)
+        if (!selectedTile.GetComponent<SquareUnit>().unit && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food >= costeArquero)
         {
             GameObject unitInstanced = Instantiate(rangerPrefab, selectedTile.position + Vector3.up / 2f, rangerPrefab.transform.rotation);
 
@@ -328,13 +359,15 @@ public class TileMouseOver : MonoBehaviour
 
             unitInstanced.transform.parent = selectedTile.transform;
             selectedTile.GetComponent<SquareUnit>().unit = true;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food -= costeArquero;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
         }
     }
 
     public void instantiateWarrior()
     {
-        if (!selectedTile.GetComponent<SquareUnit>().unit)
+        if (!selectedTile.GetComponent<SquareUnit>().unit && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food >= costeGuerrero)
         {
             GameObject unitInstanced = Instantiate(warriorPrefab, selectedTile.position + Vector3.up / 2f, warriorPrefab.transform.rotation);
 
@@ -345,13 +378,15 @@ public class TileMouseOver : MonoBehaviour
 
             unitInstanced.transform.parent = selectedTile.transform;
             selectedTile.GetComponent<SquareUnit>().unit = true;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food -= costeGuerrero;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
         }
     }
 
     public void instantiateJornalero()
     {
-        if (!selectedTile.GetComponent<SquareUnit>().unit)
+        if (!selectedTile.GetComponent<SquareUnit>().unit && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food >= costeJornalero)
         {
             GameObject unitInstanced = Instantiate(jornaleroPrefab, selectedTile.position + Vector3.up / 2f, jornaleroPrefab.transform.rotation);
 
@@ -362,6 +397,8 @@ public class TileMouseOver : MonoBehaviour
 
             unitInstanced.transform.parent = selectedTile.transform;
             selectedTile.GetComponent<SquareUnit>().unit = true;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().food -= costeJornalero;
+            GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().updateText();
             Close();
         }
     }

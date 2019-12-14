@@ -43,6 +43,13 @@ public class PlayerResources : MonoBehaviour
         
     }
 
+    public void updateText(){
+        textFood.text = food.ToString();
+        textWood.text = wood.ToString();
+        textGold.text = gold.ToString();
+        textStone.text = stone.ToString();
+    }
+
     public void UpdateResources(){
 
         foreach(GameObject casilla in gameGrid.casillasArray){

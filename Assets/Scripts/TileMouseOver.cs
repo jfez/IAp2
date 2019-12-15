@@ -50,6 +50,7 @@ public class TileMouseOver : MonoBehaviour
     public Canvas canvasPueblo;
     public Canvas canvasAcademia;
     public Canvas canvasOpcionesConstruccion;
+    public Canvas canvasPrecios;
 
     private bool moving;
     private Transform startSquare;
@@ -418,7 +419,8 @@ public class TileMouseOver : MonoBehaviour
             selectedTile.GetComponent<Renderer>().material.color = whiteColor;
 
         }
-        
+        canvasPrecios.gameObject.SetActive(false);
+
     }
 
     void UpdateNextToFortPlayer(GameObject casillaFort){
@@ -509,5 +511,10 @@ public class TileMouseOver : MonoBehaviour
     public void showTownCanvas(){
         canvasOpcionesConstruccion.gameObject.SetActive(false);
         canvasPueblo.gameObject.SetActive(true);
+    }
+
+    public void showPricesCanvas()
+    {
+        canvasPrecios.gameObject.SetActive(true);
     }
 }

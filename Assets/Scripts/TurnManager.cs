@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     public bool playerTurn;
+    public GameObject ticTac;
     private TileMouseOver gameGrid;
     private PlayerResources playerResources;
     private BehaviourController behaviourController;
@@ -17,6 +18,7 @@ public class TurnManager : MonoBehaviour
         gameGrid = GameObject.FindGameObjectWithTag("GridManager").GetComponent<TileMouseOver>();
         playerResources = GetComponent<PlayerResources>();
         behaviourController = GetComponent<BehaviourController>();
+        ticTac.SetActive(false);
     }
 
     public void ClickButton(){
@@ -33,6 +35,7 @@ public class TurnManager : MonoBehaviour
     IEnumerator TurnCoroutine()
     {
         playerTurn = false;
+        ticTac.SetActive(true);
 
         //Print the time of when the function is first called.
         //Debug.Log("Started Coroutine at timestamp : " + Time.time);
@@ -47,5 +50,7 @@ public class TurnManager : MonoBehaviour
 
         playerTurn = true;
         playerResources.UpdateResources();
+        ticTac.transform.rotation = Quaternion.identity;
+        ticTac.SetActive(false);
     }
 }

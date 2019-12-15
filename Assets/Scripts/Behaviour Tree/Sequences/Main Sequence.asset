@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Main Sequence
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 11400000, guid: 61b94b35d0f96e84888dc4b22ea244aa, type: 2}
+  - {fileID: 11400000, guid: 2f1fa348e0567164092443fbe14394dd, type: 2}
+  - {fileID: 11400000, guid: 9ffa2cfc9c80d9344b6110e773c316dc, type: 2}

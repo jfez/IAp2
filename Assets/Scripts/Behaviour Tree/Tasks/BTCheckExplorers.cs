@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Behaviour Tree Node/Tasks/Check Explorers")]
 public class BTCheckExplorers : BTNode
 {
     public override BTNodeState Evaluate(BehaviourController controller)
@@ -12,12 +13,15 @@ public class BTCheckExplorers : BTNode
         foreach (Collider collider in colliders)
         {
             Transform selectedTile = collider.transform;
-            if (!selectedTile.GetComponent<SquareUnit>().unit)
+            Resources resources = selectedTile.GetComponent<Resources>();
+            SquareUnit squareUnit = selectedTile.GetComponent<SquareUnit>();
+            if (squareUnit != null && resources.building == Resources.Building.Empty && !squareUnit.unit)
             {
                 GameObject unitInstantiated = Instantiate(controller.explorer_AIPrefab, selectedTile.position + Vector3.up / 2f, controller.explorer_AIPrefab.transform.rotation);
                 unitInstantiated.transform.parent = selectedTile.transform;
                 selectedTile.GetComponent<SquareUnit>().unit = true;
                 controller.numExplorers++;
+                controller.explorers.Add(unitInstantiated.GetComponent<Unit>());
                 break;
             }
         }

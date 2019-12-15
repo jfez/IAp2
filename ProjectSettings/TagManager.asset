@@ -15,6 +15,9 @@ TagManager:
   - Edificio
   - EdificioIA
   - jornalero
+  - AI_Troop
+  - AI_Explorer
+  - AI_Labourer
   layers:
   - Default
   - TransparentFX

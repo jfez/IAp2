@@ -64,6 +64,16 @@ public class InfluenceMapControl : MonoBehaviour
 		bottomLeft = _bottomLeft.position;
 		topRight = _upperRight.position;
 	}
+
+    public float[,] GetWorldInfluences()
+    {
+        return _influenceMap.GetWorldInfluences();
+    }
+
+    public Vector2I[] GetNeighbors(int x, int y)
+    {
+        return _influenceMap.GetNeighbors(x, y);
+    }
 	
 	void Awake()
 	{

@@ -16,7 +16,7 @@ public class BTCheckAcademy : BTNode
             if (resources != null && resources.building == Resources.Building.Empty)
             {
                 Transform selectedTile = collider.transform;
-                Instantiate(controller.academy_AIPrefab, selectedTile.position + Vector3.up / 1.3f, controller.academy_AIPrefab.transform.rotation);
+                Instantiate(controller.academy_AIPrefab, selectedTile.position + Vector3.up / 1.44f, controller.academy_AIPrefab.transform.rotation);
                 selectedTile.GetComponent<Resources>().building = Resources.Building.Academy;
                 selectedTile.GetChild(0).gameObject.SetActive(false);
                 selectedTile.GetChild(1).gameObject.SetActive(false);

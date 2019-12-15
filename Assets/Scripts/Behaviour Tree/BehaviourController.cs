@@ -5,6 +5,8 @@ using UnityEngine;
 public class BehaviourController : MonoBehaviour
 {
     public BTNode behaviourTree;
+    public InfluenceMapControl worldMap;
+    public LayerMask cellLayer;
 
     public GameObject mainCiyt_AI;
     public GameObject town_AIPrefab;
@@ -20,15 +22,27 @@ public class BehaviourController : MonoBehaviour
     [HideInInspector] public bool hasTown;
     [HideInInspector] public bool hasAcademy;
 
+    [HideInInspector] public bool hasToMoveTroops;
+    [HideInInspector] public bool hasToMoveExplorers;
+    [HideInInspector] public bool hasToMoveLabourers;
+
     [HideInInspector] public float buildingRadius = 2f;
-    [HideInInspector] public float instancingRadius = 3f;
+    [HideInInspector] public float instancingRadius = 10f;
 
     [HideInInspector] public int numTroops;
     [HideInInspector] public int numExplorers;
     [HideInInspector] public int numLabourers;
 
+    [HideInInspector] public List<Unit> troops = new List<Unit>();
+    [HideInInspector] public List<Unit> explorers = new List<Unit>();
+    [HideInInspector] public List<Unit> labourers = new List<Unit>();
+
     public void PerformTurn_AI(int actionsPerTurn)
     {
+        hasToMoveTroops = true;
+        hasToMoveExplorers = true;
+        hasToMoveLabourers = true;
+
         for (int i = 0; i < actionsPerTurn; i++)
         {
             behaviourTree.Evaluate(this);

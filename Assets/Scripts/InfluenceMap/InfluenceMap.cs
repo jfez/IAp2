@@ -132,7 +132,7 @@ public class InfluenceMap : GridData
 		}
 	}
 	
-	Vector2I[] GetNeighbors(int x, int y)
+	public Vector2I[] GetNeighbors(int x, int y)
 	{
 		List<Vector2I> retVal = new List<Vector2I>();
 		
@@ -189,4 +189,9 @@ public class InfluenceMap : GridData
 
 		return retVal.ToArray();
 	}
+
+    public float[,] GetWorldInfluences()
+    {
+        return _influences;
+    }
 }

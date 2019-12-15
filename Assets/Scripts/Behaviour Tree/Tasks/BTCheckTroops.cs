@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Behaviour Tree Node/Tasks/Check Troops")]
 public class BTCheckTroops : BTNode
 {
     public override BTNodeState Evaluate(BehaviourController controller)
@@ -12,7 +13,9 @@ public class BTCheckTroops : BTNode
         foreach (Collider collider in colliders)
         {
             Transform selectedTile = collider.transform;
-            if (!selectedTile.GetComponent<SquareUnit>().unit)
+            Resources resources = selectedTile.GetComponent<Resources>();
+            SquareUnit squareUnit = selectedTile.GetComponent<SquareUnit>();
+            if (squareUnit != null && resources.building == Resources.Building.Empty && !squareUnit.unit)
             {
                 GameObject unitInstantiated;
                 if (Random.value >= 0.5f) unitInstantiated = Instantiate(controller.ranger_AIPrefab, selectedTile.position + Vector3.up / 2f, controller.ranger_AIPrefab.transform.rotation);
@@ -21,6 +24,7 @@ public class BTCheckTroops : BTNode
                 unitInstantiated.transform.parent = selectedTile.transform;
                 selectedTile.GetComponent<SquareUnit>().unit = true;
                 controller.numTroops++;
+                controller.troops.Add(unitInstantiated.GetComponent<Unit>());
                 break;
             }
         }

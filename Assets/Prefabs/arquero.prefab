@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 65328747568250584}
   - component: {fileID: 54106375781502804}
   - component: {fileID: 8611334507241037407}
+  - component: {fileID: 397866378}
   m_Layer: 13
   m_Name: arquero
   m_TagString: Player
@@ -425,6 +426,19 @@ MonoBehaviour:
   poder: 7
   rango: 3
   puedeMoverse: 1
+--- !u!65 &397866378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573072815079674356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.976785, y: 23.452803, z: 14.59059}
+  m_Center: {x: -0.59312475, y: 11.2263975, z: -1.7611128}
 --- !u!1 &4573072815079674358
 GameObject:
   m_ObjectHideFlags: 0

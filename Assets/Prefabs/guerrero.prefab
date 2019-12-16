@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 65995062908610376}
   - component: {fileID: 54783577999399230}
   - component: {fileID: 3289723442274486997}
+  - component: {fileID: 11922732}
   m_Layer: 13
   m_Name: guerrero
   m_TagString: Player
@@ -270,6 +271,19 @@ MonoBehaviour:
   poder: 10
   rango: 3
   puedeMoverse: 1
+--- !u!65 &11922732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763221025921738021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.976785, y: 23.452803, z: 14.59059}
+  m_Center: {x: -0.59312475, y: 11.2263975, z: -1.7611128}
 --- !u!1 &4763221025921738023
 GameObject:
   m_ObjectHideFlags: 0

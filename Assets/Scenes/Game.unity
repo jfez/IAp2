@@ -2300,6 +2300,9 @@ MonoBehaviour:
   aiCitizen:
     serializedVersion: 2
     m_Bits: 16384
+  playerCity:
+    serializedVersion: 2
+    m_Bits: 32768
   mainCiyt_AI: {fileID: 9174476117300543813, guid: bdbeba2e376656d42934bb5437ca0fab,
     type: 3}
   town_AIPrefab: {fileID: 6775945010207658976, guid: 6bed4a7e7d416b742bc7aaa48129cc4b,

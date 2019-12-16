@@ -6884,7 +6884,7 @@ GameObject:
   - component: {fileID: 3138049269890394934}
   - component: {fileID: 3840799506849189783}
   - component: {fileID: 114338096126554770}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Ciudad1 (1)
   m_TagString: Edificio
   m_Icon: {fileID: 0}

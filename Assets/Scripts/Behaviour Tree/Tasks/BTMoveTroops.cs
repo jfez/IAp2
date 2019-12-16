@@ -15,6 +15,60 @@ public class BTMoveTroops : BTNode
         foreach (Unit unit in controller.troops)
         {
             Debug.Log("Moving troops...");
+            GameObject newGO = new GameObject();
+            Transform target = newGO.GetComponent<Transform>();
+
+            Collider[] playerCityCollider = Physics.OverlapSphere(unit.transform.position, 1.4f, controller.playerCity);
+            if (playerCityCollider.Length != 0)
+            {
+                target.position = new Vector3(playerCityCollider[0].transform.position.x, 0.5f, playerCityCollider[0].transform.position.z);
+
+                unit.Pathing(unit.transform, target);
+                unit.GetComponent<combatStats>().atacarCiudad(playerCityCollider[0].gameObject);
+                unit.GetComponentInParent<SquareUnit>().unit = false;
+                unit.transform.parent = null;
+
+                Destroy(newGO);
+                count++;
+                continue;
+            }
+
+            Transform playerCitizenCell = null;
+            Collider[] surroundingCells = Physics.OverlapSphere(unit.transform.position, 1.4f, controller.cellLayer);
+            foreach (Collider col in surroundingCells)
+            {
+                if (col.GetComponentInChildren<Unit>() != null && col.GetComponentInChildren<Unit>().gameObject.CompareTag("Player"))
+                {
+                    playerCitizenCell = col.transform;
+                }
+            }
+
+            if (playerCitizenCell != null)
+            {
+                target.position = new Vector3(playerCitizenCell.position.x, 0.5f, playerCitizenCell.position.z);
+
+                Collider[] aiCitizens = Physics.OverlapSphere(target.position, 1.4f, controller.aiCitizen);
+                List<Collider> colliderFilter = new List<Collider>();
+                foreach (Collider col in aiCitizens)
+                {
+                    if (!col.isTrigger) colliderFilter.Add(col);
+                }
+
+                if (colliderFilter.Count == 1 || colliderFilter.Count > 1 && count == 0)
+                {
+                    Debug.Log("attacking!");
+                    unit.GetComponent<combatStats>().puedeMoverse = false;
+                    unit.GetComponentInParent<SquareUnit>().unit = false;
+                    unit.Pathing(unit.transform, target);
+                    unit.GetComponent<combatStats>().combate(playerCitizenCell.GetComponentInChildren<Unit>().gameObject);
+                    unit.transform.parent = playerCitizenCell;
+
+                    Destroy(newGO);
+                    count++;
+                    continue;
+                }
+            }
+
             Vector2I gridPos = controller.worldMap.GetGridPosition(unit.transform.position);
 
             Vector2I[] neighbors = controller.worldMap.GetNeighbors(gridPos.x, gridPos.y);
@@ -38,28 +92,7 @@ public class BTMoveTroops : BTNode
                 }
             }
 
-            GameObject newGO = new GameObject();
-            Transform target = newGO.GetComponent<Transform>();
             target.position = new Vector3(unit.transform.position.x + (meanInfluencePos.x - gridPos.x), 0.5f, unit.transform.position.z + (meanInfluencePos.y - gridPos.y));
-
-            Collider[] playerCitizen = Physics.OverlapSphere(target.position, 0.5f, controller.playerCitizen);
-            if (playerCitizen.Length != 0)
-            {
-                Debug.Log(playerCitizen[0].name + " detected!");
-                Collider[] aiCitizens = Physics.OverlapSphere(target.position, 1.5f, controller.aiCitizen);
-                if (aiCitizens.Length == 1 || aiCitizens.Length > 1 && count == 0)
-                {
-                    unit.GetComponent<combatStats>().puedeMoverse = false;
-                    unit.GetComponentInParent<SquareUnit>().unit = false;
-                    unit.Pathing(unit.transform, target);
-                    unit.GetComponent<combatStats>().combate(playerCitizen[0].gameObject);
-                    unit.transform.parent = playerCitizen[0].GetComponentInParent<Transform>();
-
-                    Destroy(newGO);
-                    count++;
-                    break;
-                }
-            }
 
             Collider[] cell = Physics.OverlapSphere(target.position, 0.5f, controller.cellLayer);
             foreach (Collider collider in cell)

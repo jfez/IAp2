@@ -23,9 +23,46 @@ public class combatStats : MonoBehaviour
         yield return StartCoroutine(checkDistance(enemy));
 
         if (numeroRandom <= porcentajeAtacante){
+            if (enemy.layer == 14)
+            {
+                BehaviourController bc = GameObject.FindGameObjectWithTag("TurnManager").GetComponent<BehaviourController>();
+                if (enemy.CompareTag("AI_Troop"))
+                {
+                    bc.numTroops--;
+                    bc.troops.Remove(enemy.GetComponent<Unit>());
+                }
+                else if (enemy.CompareTag("AI_Explorer"))
+                {
+                    bc.numExplorers--;
+                    bc.explorers.Remove(enemy.GetComponent<Unit>());
+                }
+                else {
+                    bc.numLabourers--;
+                    bc.labourers.Remove(enemy.GetComponent<Unit>());
+                }
+            }
             enemy.GetComponent<SimplePropagator>().removePropagator();
             enemy.SetActive(false);
         } else {
+            if (gameObject.layer == 14)
+            {
+                BehaviourController bc = GameObject.FindGameObjectWithTag("TurnManager").GetComponent<BehaviourController>();
+                if (gameObject.CompareTag("AI_Troop"))
+                {
+                    bc.numTroops--;
+                    bc.troops.Remove(gameObject.GetComponent<Unit>());
+                }
+                else if (gameObject.CompareTag("AI_Explorer"))
+                {
+                    bc.numExplorers--;
+                    bc.explorers.Remove(gameObject.GetComponent<Unit>());
+                }
+                else
+                {
+                    bc.numLabourers--;
+                    bc.labourers.Remove(gameObject.GetComponent<Unit>());
+                }
+            }
             this.gameObject.GetComponent<SimplePropagator>().removePropagator();
             this.gameObject.SetActive(false);
         }        
@@ -46,6 +83,26 @@ public class combatStats : MonoBehaviour
             ciudad.SetActive(false);
         }
 
+        if (gameObject.layer == 14)
+        {
+            BehaviourController bc = GameObject.FindGameObjectWithTag("TurnManager").GetComponent<BehaviourController>();
+            if (gameObject.CompareTag("AI_Troop"))
+            {
+                bc.numTroops--;
+                bc.troops.Remove(gameObject.GetComponent<Unit>());
+            }
+            else if (gameObject.CompareTag("AI_Explorer"))
+            {
+                bc.numExplorers--;
+                bc.explorers.Remove(gameObject.GetComponent<Unit>());
+            }
+            else
+            {
+                bc.numLabourers--;
+                bc.labourers.Remove(gameObject.GetComponent<Unit>());
+            }
+        }
+        this.gameObject.GetComponent<SimplePropagator>().removePropagator();
         this.gameObject.SetActive(false);
     }
 

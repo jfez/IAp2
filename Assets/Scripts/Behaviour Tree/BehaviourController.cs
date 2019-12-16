@@ -9,6 +9,7 @@ public class BehaviourController : MonoBehaviour
     public LayerMask cellLayer;
     public LayerMask playerCitizen;
     public LayerMask aiCitizen;
+    public LayerMask playerCity;
 
     public GameObject mainCiyt_AI;
     public GameObject town_AIPrefab;

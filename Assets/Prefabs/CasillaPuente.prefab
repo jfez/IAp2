@@ -262,6 +262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: 0
+  nextToCityPlayer: 0
+  nextToCityAI: 0
+  nextToFortPlayer: 0
+  nextToTownPlayer: 0
+  nextToAcademyPlayer: 0
 --- !u!1001 &1183372955283730806
 PrefabInstance:
   m_ObjectHideFlags: 0

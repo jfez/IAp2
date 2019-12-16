@@ -214,7 +214,8 @@ public class TileMouseOver : MonoBehaviour
                     }
 
                     else if (moving && Vector3.Distance(startSquare.transform.position, selection.transform.position) <= startSquare.GetComponentInChildren<combatStats>().rango){
-                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit  && selection.GetComponent<Resources>().building == Resources.Building.Empty){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit && selection.GetComponent<Resources>().building == Resources.Building.Empty)
+                        {
                             startSquare.GetComponentInChildren<combatStats>().puedeMoverse = false;
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 

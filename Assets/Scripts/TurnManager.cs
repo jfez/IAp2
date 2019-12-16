@@ -25,11 +25,7 @@ public class TurnManager : MonoBehaviour
         if (playerTurn){
             gameGrid.Close();
             StartCoroutine(TurnCoroutine());
-            
-
         }
-
-        
     }
 
     IEnumerator TurnCoroutine()
@@ -51,6 +47,12 @@ public class TurnManager : MonoBehaviour
         playerTurn = true;
         playerResources.UpdateResources();
         ticTac.transform.rotation = Quaternion.identity;
+        GameObject[] listUnits = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject unit in listUnits){
+            unit.GetComponent<combatStats>().puedeMoverse = true;
+        }
+
         ticTac.SetActive(false);
     }
 }

@@ -206,7 +206,7 @@ public class TileMouseOver : MonoBehaviour
                     }
 
                     else if (!moving){
-                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit && selection.GetComponentInChildren<combatStats>().puedeMoverse){
                             startSquare = selection;
                             moving = true;
 
@@ -215,16 +215,18 @@ public class TileMouseOver : MonoBehaviour
 
                     else if (moving){
                         if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit && selection.GetComponent<Resources>().building == Resources.Building.Empty){
+                            startSquare.GetComponentInChildren<combatStats>().puedeMoverse = false;
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 
                             startSquare.GetComponentInChildren<Unit>().transform.parent = selection.transform;
                             selection.GetComponent<SquareUnit>().unit = true;
-                            startSquare.GetComponent<SquareUnit>().unit = false;
-
+                            startSquare.GetComponent<SquareUnit>().unit = false; 
                             
                             startSquare = null;
                             moving = false; 
-                        } else if(Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit/* && selection.GetComponentInChildren<Unit>().gameObject.tag == "Enemy"*/){
+
+                        } else if(Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit && (selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Explorer" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Labourer" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Ranger" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Warrior")){
+                            startSquare.GetComponentInChildren<combatStats>().puedeMoverse = false;
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 
                             startSquare.GetComponentInChildren<combatStats>().combate(selection.GetComponentInChildren<combatStats>().gameObject);
@@ -237,6 +239,7 @@ public class TileMouseOver : MonoBehaviour
                             
                             startSquare = null;
                             moving = false; 
+
                         } else if (Input.GetMouseButtonDown(0) && selection.GetComponent<Resources>() != null && selection.GetComponent<Resources>().building == Resources.Building.EnemyCity){
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
                             startSquare.GetComponentInChildren<combatStats>().atacarCiudad(GameObject.FindGameObjectWithTag("EdificioIA"));

@@ -5,6 +5,8 @@ using UnityEngine;
 public class combatStats : MonoBehaviour
 {
     public float poder;
+    public int rango;
+    public bool puedeMoverse = true;
 
     public void combate(GameObject enemy){
         float poderEnemigo = enemy.GetComponent<combatStats>().poder;
@@ -14,12 +16,24 @@ public class combatStats : MonoBehaviour
 
         float numeroRandom = Random.Range(0f, 1f);
 
+        StartCoroutine(combatCheck(enemy, numeroRandom, porcentajeAtacante));  
+    }
+
+    IEnumerator combatCheck(GameObject enemy, float numeroRandom, float porcentajeAtacante){
+        yield return StartCoroutine(checkDistance(enemy));
+
         if (numeroRandom <= porcentajeAtacante){
             enemy.GetComponent<SimplePropagator>().removePropagator();
             enemy.SetActive(false);
         } else {
             this.gameObject.GetComponent<SimplePropagator>().removePropagator();
             this.gameObject.SetActive(false);
+        }        
+    }
+
+    IEnumerator checkDistance(GameObject enemy){
+        while(Vector3.Distance(this.gameObject.transform.position, enemy.gameObject.transform.position) > 1){
+            yield return null;
         }
     }
 

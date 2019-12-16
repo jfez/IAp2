@@ -7152,6 +7152,86 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Close
       objectReference: {fileID: 0}
+    - target: {fileID: 3010686209276896535, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 63.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686209276896535, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 58.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686207754926346, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1459.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686208922061707, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 63.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686208922061707, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 58.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686208922061707, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1459.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686207479242403, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 63.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686207479242403, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 58.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686207479242428, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fcef140d139e4a04db8fac586cc68279, type: 3}
+    - target: {fileID: 3010686207754926347, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fcef140d139e4a04db8fac586cc68279, type: 3}
+    - target: {fileID: 3010686208031661652, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Text
+      value: "     Arquero\t   ---------------   x5"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686208032944376, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Text
+      value: "     Jornalero\t   ---------------   x6\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686208922061700, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fcef140d139e4a04db8fac586cc68279, type: 3}
+    - target: {fileID: 3010686209115213008, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Text
+      value: '     Explorador ---------------   x5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686209184274606, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Text
+      value: "     Guerrero   \t---------------   x7"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010686209276896528, guid: 95f5c02d96174894aa00e97a686fcaad,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fcef140d139e4a04db8fac586cc68279, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f5c02d96174894aa00e97a686fcaad, type: 3}
 --- !u!1 &2040296798

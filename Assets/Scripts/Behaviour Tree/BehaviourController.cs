@@ -7,6 +7,8 @@ public class BehaviourController : MonoBehaviour
     public BTNode behaviourTree;
     public InfluenceMapControl worldMap;
     public LayerMask cellLayer;
+    public LayerMask playerCitizen;
+    public LayerMask aiCitizen;
 
     public GameObject mainCiyt_AI;
     public GameObject town_AIPrefab;

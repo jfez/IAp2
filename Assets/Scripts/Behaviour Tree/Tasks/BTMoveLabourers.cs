@@ -36,7 +36,7 @@ public class BTMoveLabourers : BTNode
             Collider[] cell = Physics.OverlapSphere(target.position, 0.5f, controller.cellLayer);
             foreach (Collider collider in cell)
             {
-                if (collider.GetComponent<Resources>().building == Resources.Building.Empty && !collider.GetComponent<SquareUnit>().unit)
+                if (collider.GetComponent<Resources>() != null && collider.GetComponent<Resources>().building == Resources.Building.Empty && !collider.GetComponent<SquareUnit>().unit)
                 {
                     collider.GetComponent<SquareUnit>().unit = true;
                     unit.GetComponentInParent<SquareUnit>().unit = false;

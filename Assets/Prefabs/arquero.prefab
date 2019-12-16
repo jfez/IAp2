@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 65328747568250584}
   - component: {fileID: 54106375781502804}
   - component: {fileID: 8611334507241037407}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: arquero
   m_TagString: Player
   m_Icon: {fileID: 0}

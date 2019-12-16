@@ -43,10 +43,26 @@ public class BTMoveExplorers : BTNode
             Transform target = newGO.GetComponent<Transform>();
             target.position = new Vector3(unit.transform.position.x + (minInfluencePos.x - gridPos.x), 0.5f, unit.transform.position.z + (minInfluencePos.y - gridPos.y));
 
+            Collider[] playerCitizens = Physics.OverlapSphere(target.position, 2f, controller.playerCitizen);
+            if (playerCitizens.Length != 0)
+            {
+                float maxInfluence = Mathf.Infinity;
+                Vector2I maxInfluencePos = gridPos;
+                for (int i = 0; i < neighbors.Length; i++)
+                {
+                    if (worldInfluences[neighbors[i].x, neighbors[i].y] < maxInfluence)
+                    {
+                        maxInfluence = worldInfluences[neighbors[i].x, neighbors[i].y];
+                        maxInfluencePos = new Vector2I(neighbors[i].x, neighbors[i].y);
+                    }
+                }
+                target.position = new Vector3(unit.transform.position.x + (maxInfluencePos.x - gridPos.x), 0.5f, unit.transform.position.z + (maxInfluencePos.y - gridPos.y));
+            }
+
             Collider[] cell = Physics.OverlapSphere(target.position, 0.5f, controller.cellLayer);
             foreach (Collider collider in cell)
             {
-                if (collider.GetComponent<Resources>().building == Resources.Building.Empty && !collider.GetComponent<SquareUnit>().unit)
+                if (collider.GetComponent<Resources>() != null && collider.GetComponent<Resources>().building == Resources.Building.Empty && !collider.GetComponent<SquareUnit>().unit)
                 {
                     collider.GetComponent<SquareUnit>().unit = true;
                     unit.GetComponentInParent<SquareUnit>().unit = false;

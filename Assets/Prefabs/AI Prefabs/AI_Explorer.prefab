@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 5319008085896487199}
   - component: {fileID: 5328958613581926135}
   - component: {fileID: 114642875719354222}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: AI_Explorer
   m_TagString: AI_Explorer
   m_Icon: {fileID: 0}

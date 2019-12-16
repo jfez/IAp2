@@ -7210,7 +7210,7 @@ PrefabInstance:
     - target: {fileID: 3010686208032944376, guid: 95f5c02d96174894aa00e97a686fcaad,
         type: 3}
       propertyPath: m_Text
-      value: "     Jornalero\t   ---------------   x6\n"
+      value: "     Jornalero\t   ---------------   x3\n"
       objectReference: {fileID: 0}
     - target: {fileID: 3010686208922061700, guid: 95f5c02d96174894aa00e97a686fcaad,
         type: 3}

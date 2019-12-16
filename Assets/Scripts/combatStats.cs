@@ -37,7 +37,9 @@ public class combatStats : MonoBehaviour
         }
     }
 
-    public void atacarCiudad(GameObject ciudad){
+    IEnumerator cityCheck(GameObject ciudad){
+        yield return StartCoroutine(checkDistance(ciudad));
+
         ciudad.GetComponent<vidaCuidad>().vida -= poder;
 
         if (ciudad.GetComponent<vidaCuidad>().vida <= 0){
@@ -45,5 +47,9 @@ public class combatStats : MonoBehaviour
         }
 
         this.gameObject.SetActive(false);
+    }
+
+    public void atacarCiudad(GameObject ciudad){
+        StartCoroutine(cityCheck(ciudad));
     }
 }

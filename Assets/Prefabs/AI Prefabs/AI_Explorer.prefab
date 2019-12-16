@@ -576,6 +576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poder: 1
+  rango: 5
+  puedeMoverse: 1
 --- !u!1 &8230759879895505263
 GameObject:
   m_ObjectHideFlags: 0

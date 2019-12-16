@@ -48,9 +48,16 @@ public class TurnManager : MonoBehaviour
         playerResources.UpdateResources();
         ticTac.transform.rotation = Quaternion.identity;
         GameObject[] listUnits = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] listJornalero = GameObject.FindGameObjectsWithTag("jornalero");
 
         foreach (GameObject unit in listUnits){
             unit.GetComponent<combatStats>().puedeMoverse = true;
+            unit.transform.parent.GetComponent<SquareUnit>().unit = true;
+        }
+
+        foreach (GameObject unit in listJornalero){
+            unit.GetComponent<combatStats>().puedeMoverse = true;
+            unit.transform.parent.GetComponent<SquareUnit>().unit = true;
         }
 
         ticTac.SetActive(false);

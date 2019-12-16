@@ -206,7 +206,7 @@ public class TileMouseOver : MonoBehaviour
                     }
 
                     else if (!moving){
-                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit && selection.GetComponentInChildren<combatStats>().puedeMoverse){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit && (selection.GetComponentInChildren<Unit>().gameObject.tag == "Player" || selection.GetComponentInChildren<Unit>().gameObject.tag == "jornalero")  && selection.GetComponentInChildren<combatStats>().puedeMoverse){
                             startSquare = selection;
                             moving = true;
 
@@ -214,7 +214,7 @@ public class TileMouseOver : MonoBehaviour
                     }
 
                     else if (moving){
-                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit && selection.GetComponent<Resources>().building == Resources.Building.Empty){
+                        if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit  && selection.GetComponent<Resources>().building == Resources.Building.Empty){
                             startSquare.GetComponentInChildren<combatStats>().puedeMoverse = false;
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 
@@ -225,7 +225,7 @@ public class TileMouseOver : MonoBehaviour
                             startSquare = null;
                             moving = false; 
 
-                        } else if(Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit && (selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Explorer" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Labourer" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Ranger" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Warrior")){
+                        } else if(Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && selection.GetComponent<SquareUnit>().unit && (selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Explorer" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Labourer" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Ranger" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Warrior" || selection.GetComponentInChildren<Unit>().gameObject.tag == "AI_Troop")){
                             startSquare.GetComponentInChildren<combatStats>().puedeMoverse = false;
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
 

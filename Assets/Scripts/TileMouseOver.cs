@@ -213,7 +213,7 @@ public class TileMouseOver : MonoBehaviour
                         }
                     }
 
-                    else if (moving){
+                    else if (moving && Vector3.Distance(startSquare.transform.position, selection.transform.position) <= startSquare.GetComponentInChildren<combatStats>().rango){
                         if (Input.GetMouseButtonDown(0) && selection.GetComponent<SquareUnit>() != null && !selection.GetComponent<SquareUnit>().unit  && selection.GetComponent<Resources>().building == Resources.Building.Empty){
                             startSquare.GetComponentInChildren<combatStats>().puedeMoverse = false;
                             startSquare.GetComponentInChildren<Unit>().Pathing(startSquare, selection.transform);
@@ -275,7 +275,7 @@ public class TileMouseOver : MonoBehaviour
     }
 
     public void instantiateCity(){
-        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().gold >= costeCiudad){
+        if (selectedTile.GetComponent<Resources>().building == Resources.Building.Empty && GameObject.FindGameObjectWithTag("TurnManager").GetComponent<PlayerResources>().gold >= costeCiudad && selectedTile.GetComponentInChildren<desactivarNiebla>() == null){
             Instantiate(cityPrefab, selectedTile.position + Vector3.up/2f, cityPrefab.transform.rotation);
             selectedTile.GetComponent<Resources>().building = Resources.Building.City;
             selectedTile.GetChild(0).gameObject.SetActive(false);
